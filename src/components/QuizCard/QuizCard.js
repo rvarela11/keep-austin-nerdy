@@ -100,7 +100,7 @@ class QuizCard extends Component {
                                     color="primary"
                                     disabled={isQuestionAnswered}
                                     fullWidth
-                                    onClick={() => updateQuestionInfo(true, (indexOfCorrectAnswer === index), null)}
+                                    onClick={() => updateQuestionInfo(true, (indexOfCorrectAnswer === index), item.id)}
                                     size="large"
                                 >
                                     {option}

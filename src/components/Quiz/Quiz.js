@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // @components
 import Scoreboard from '../Scoreboard/Scoreboard';
 import QuizCard from '../QuizCard/QuizCard';
+import NextButton from '../NextButton/NextButton';
 
 // @styles
 import './Quiz.scss';
@@ -24,6 +25,7 @@ const Quiz = (props) => {
                     />
                 ))
             }
+            <NextButton />
         </div>
     );
 };
