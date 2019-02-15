@@ -1,5 +1,9 @@
 const initialState = {
-    apiOneQuestion: []
+    apiOneQuestion: [],
+    correctAnswers: 0,
+    isQuestionAnswered: false,
+    maxQuestions: 10,
+    pastQuestions: [0]
 };
 
 export function reducer(state = initialState, action) {

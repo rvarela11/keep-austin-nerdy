@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 // @components
 import Header from '../Header/Header';
+import Quiz from '../Quiz/Quiz';
 
 // @actions
 import { getQuestionsData } from '../../actions/index';
@@ -22,28 +23,21 @@ class App extends Component {
     }
 
     render() {
-        const { apiOneQuestion } = this.props;
-        console.log({ apiOneQuestion })
         return (
             <div className="App">
                 <Header />
+                <Quiz />
             </div>
-        )
+        );
     }
-
 }
 
 const mapDispatchToProps = dispatch => ({
     getQuestionsData: questions => dispatch(getQuestionsData(questions))
 });
 
-const mapStateToProps = state => ({
-    apiOneQuestion: state.apiOneQuestion
-});
-
 App.propTypes = {
-    apiOneQuestion: PropTypes.array.isRequired
+    getQuestionsData: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
-
+export default connect(null, mapDispatchToProps)(App);
