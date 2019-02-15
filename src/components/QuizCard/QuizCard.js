@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
 
 // @material-ui
 import Card from '@material-ui/core/Card';
@@ -9,6 +10,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+// @actions
+import { updateQuestionInfo } from '../../actions/index';
 
 // @styles
 import './QuizCard.scss';
@@ -76,7 +80,8 @@ class QuizCard extends Component {
         const {
             classes,
             isQuestionAnswered,
-            item
+            item,
+            updateQuestionInfo
         } = this.props;
         const { indexOfCorrectAnswer } = this.state;
         return (
@@ -95,7 +100,7 @@ class QuizCard extends Component {
                                     color="primary"
                                     disabled={isQuestionAnswered}
                                     fullWidth
-                                    onClick={() => console.log('Clicked!')}
+                                    onClick={() => updateQuestionInfo(true, (indexOfCorrectAnswer === index), null)}
                                     size="large"
                                 >
                                     {option}
@@ -110,10 +115,19 @@ class QuizCard extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    updateQuestionInfo: (isQuestionAnswered, isQuestionCorrect, questionId) => dispatch(updateQuestionInfo(isQuestionAnswered, isQuestionCorrect, questionId))
+});
+
+const mapStateToProps = state => ({
+    isQuestionAnswered: state.isQuestionAnswered
+});
+
 QuizCard.propTypes = {
     classes: PropTypes.object.isRequired,
     isQuestionAnswered: PropTypes.bool.isRequired,
-    item: PropTypes.object.isRequired
+    item: PropTypes.object.isRequired,
+    updateQuestionInfo: PropTypes.func.isRequired
 };
 
-export default withStyles(styles)(QuizCard);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(QuizCard));

@@ -27,6 +27,14 @@ export function reducer(state = initialState, action) {
                 ...state,
                 apiOneQuestion: question
             };
+        case 'UPDATE_QUESTION_INFO':
+            const { isQuestionAnswered, isQuestionCorrect, questionId } = action;
+            return {
+                ...state,
+                isQuestionAnswered,
+                isQuestionCorrect,
+                questionId
+            };
         default:
             return state;
     }

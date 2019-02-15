@@ -5,3 +5,13 @@ export function getQuestionsData(questions) {
         payload: questions
     };
 }
+
+export const UPDATE_QUESTION_INFO = 'UPDATE_QUESTION_INFO';
+export function updateQuestionInfo(isQuestionAnswered, isQuestionCorrect, questionId) {
+    return {
+        type: UPDATE_QUESTION_INFO,
+        isQuestionAnswered,
+        isQuestionCorrect,
+        questionId
+    };
+}
