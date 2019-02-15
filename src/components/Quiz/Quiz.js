@@ -12,10 +12,19 @@ import NextButton from '../NextButton/NextButton';
 import './Quiz.scss';
 
 const Quiz = (props) => {
-    const { questionInfo } = props;
+    const {
+        correctAnswers,
+        questionInfo,
+        maxQuestions,
+        pastQuestionsLength
+    } = props;
     return (
         <div className="quiz">
-            <Scoreboard />
+            <Scoreboard
+                correctAnswers={correctAnswers}
+                maxQuestions={maxQuestions}
+                pastQuestionsLength={pastQuestionsLength}
+            />
             {
                 questionInfo.map(item => (
                     <QuizCard
@@ -25,17 +34,23 @@ const Quiz = (props) => {
                     />
                 ))
             }
-            <NextButton />
+            {(pastQuestionsLength > maxQuestions) ? null : <NextButton />}
         </div>
     );
 };
 
 const mapStateToProps = state => ({
-    questionInfo: state.apiOneQuestion
+    correctAnswers: state.correctAnswers,
+    questionInfo: state.apiOneQuestion,
+    maxQuestions: state.maxQuestions,
+    pastQuestionsLength: state.pastQuestions.length
 });
 
 Quiz.propTypes = {
-    questionInfo: PropTypes.array.isRequired
+    correctAnswers: PropTypes.number.isRequired,
+    questionInfo: PropTypes.array.isRequired,
+    maxQuestions: PropTypes.number.isRequired,
+    pastQuestionsLength: PropTypes.number.isRequired
 };
 
 export default connect(mapStateToProps)(Quiz);
