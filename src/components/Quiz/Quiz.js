@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import Scoreboard from '../Scoreboard/Scoreboard';
 import QuizCard from '../QuizCard/QuizCard';
 import NextButton from '../NextButton/NextButton';
+import Results from '../Results/Results';
 
 // @styles
 import './Quiz.scss';
@@ -14,9 +15,10 @@ import './Quiz.scss';
 const Quiz = (props) => {
     const {
         correctAnswers,
-        questionInfo,
+        isQuestionAnswered,
         maxQuestions,
-        pastQuestionsLength
+        pastQuestionsLength,
+        questionInfo
     } = props;
     return (
         <div className="quiz">
@@ -25,32 +27,44 @@ const Quiz = (props) => {
                 maxQuestions={maxQuestions}
                 pastQuestionsLength={pastQuestionsLength}
             />
-            {
-                questionInfo.map(item => (
+            {(pastQuestionsLength <= maxQuestions)
+                ? questionInfo.map(item => (
                     <QuizCard
                         key={item.id}
                         item={item}
-                        isQuestionAnswered={false}
+                        isQuestionAnswered={isQuestionAnswered}
                     />
                 ))
+                : <Results correctAnswers={correctAnswers} />
             }
-            {(pastQuestionsLength > maxQuestions) ? null : <NextButton />}
+            {(pastQuestionsLength <= maxQuestions)
+                ? (
+                    <NextButton
+                        isQuestionAnswered={isQuestionAnswered}
+                        maxQuestions={maxQuestions}
+                        pastQuestionsLength={pastQuestionsLength}
+                    />
+                )
+                : null
+            }
         </div>
     );
 };
 
 const mapStateToProps = state => ({
     correctAnswers: state.correctAnswers,
-    questionInfo: state.apiOneQuestion,
+    isQuestionAnswered: state.isQuestionAnswered,
     maxQuestions: state.maxQuestions,
-    pastQuestionsLength: state.pastQuestions.length
+    pastQuestionsLength: state.pastQuestions.length,
+    questionInfo: state.apiOneQuestion
 });
 
 Quiz.propTypes = {
     correctAnswers: PropTypes.number.isRequired,
-    questionInfo: PropTypes.array.isRequired,
+    isQuestionAnswered: PropTypes.bool.isRequired,
     maxQuestions: PropTypes.number.isRequired,
-    pastQuestionsLength: PropTypes.number.isRequired
+    pastQuestionsLength: PropTypes.number.isRequired,
+    questionInfo: PropTypes.array.isRequired
 };
 
 export default connect(mapStateToProps)(Quiz);

@@ -119,10 +119,6 @@ const mapDispatchToProps = dispatch => ({
     updateQuestionInfo: (isQuestionAnswered, isQuestionCorrect, questionId) => dispatch(updateQuestionInfo(isQuestionAnswered, isQuestionCorrect, questionId))
 });
 
-const mapStateToProps = state => ({
-    isQuestionAnswered: state.isQuestionAnswered
-});
-
 QuizCard.propTypes = {
     classes: PropTypes.object.isRequired,
     isQuestionAnswered: PropTypes.bool.isRequired,
@@ -130,4 +126,4 @@ QuizCard.propTypes = {
     updateQuestionInfo: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(QuizCard));
+export default connect(null, mapDispatchToProps)(withStyles(styles)(QuizCard));

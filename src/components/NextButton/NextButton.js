@@ -53,12 +53,6 @@ const mapDispatchToProps = dispatch => ({
     updatePastQuestions: () => dispatch(updatePastQuestions())
 });
 
-const mapStateToProps = state => ({
-    isQuestionAnswered: state.isQuestionAnswered,
-    maxQuestions: state.maxQuestions,
-    pastQuestionsLength: state.pastQuestions.length
-});
-
 NextButton.propTypes = {
     classes: PropTypes.object.isRequired,
     getQuestionsAPI: PropTypes.func.isRequired,
@@ -68,4 +62,4 @@ NextButton.propTypes = {
     updatePastQuestions: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(NextButton));
+export default connect(null, mapDispatchToProps)(withStyles(styles)(NextButton));

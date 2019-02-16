@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+// @material-ui
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 // @components
 import Header from '../Header/Header';
 import Quiz from '../Quiz/Quiz';
@@ -20,6 +23,13 @@ class App extends Component {
     }
 
     render() {
+        const { questionInfo } = this.props;
+        // Display CircularProgress if app is loading
+        if (!Array.isArray(questionInfo) || !questionInfo.length) {
+            return (
+                <CircularProgress />
+            );
+        }
         return (
             <div className="App">
                 <Header />
@@ -33,8 +43,13 @@ const mapDispatchToProps = dispatch => ({
     getQuestionsAPI: () => dispatch(getQuestionsAPI())
 });
 
+const mapStateToProps = state => ({
+    questionInfo: state.apiOneQuestion
+});
+
 App.propTypes = {
-    getQuestionsAPI: PropTypes.func.isRequired
+    getQuestionsAPI: PropTypes.func.isRequired,
+    questionInfo: PropTypes.array.isRequired
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
