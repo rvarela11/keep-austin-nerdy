@@ -4,7 +4,7 @@ const axios = require('axios');
 
 export const getQuestionsAPI = () => (dispatch) => {
     const ax = axios.create({
-        baseURL: 'http://localhost:3000'
+        baseURL: 'http://robertvarela.com/keep-austin-nerdy'
     });
     ax.get('questions.json')
         .then(response => dispatch(getQuestionsData(response.data)))
