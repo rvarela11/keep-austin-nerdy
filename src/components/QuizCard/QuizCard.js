@@ -56,7 +56,7 @@ const styles = theme => ({
     }
 });
 
-class QuizCard extends Component {
+export class QuizCard extends Component {
     state = {
         indexOfCorrectAnswer: null
     };

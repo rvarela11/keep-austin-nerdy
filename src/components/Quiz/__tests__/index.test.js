@@ -3,12 +3,18 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // @components
-import Quiz from '../Quiz';
+import { Quiz } from '../Quiz';
 
 describe('Quiz Container', () => {
     it('renders Quiz without crashing', () => {
         shallow(
-            <Quiz />
+            <Quiz
+                correctAnswers={1}
+                isQuestionAnswered={false}
+                maxQuestions={10}
+                pastQuestionsLength={1}
+                questionInfo={[]}
+            />
         );
     });
 });

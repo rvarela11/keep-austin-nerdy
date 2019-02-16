@@ -12,7 +12,7 @@ import Results from '../Results/Results';
 // @styles
 import './Quiz.scss';
 
-const Quiz = (props) => {
+export const Quiz = (props) => {
     const {
         correctAnswers,
         isQuestionAnswered,

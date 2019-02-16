@@ -7,6 +7,6 @@ import Results from '../Results';
 
 describe('Results Container', () => {
     it('renders Results without crashing', () => {
-        shallow(<Results />);
+        shallow(<Results correctAnswers={1} />);
     });
 });

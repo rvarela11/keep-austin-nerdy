@@ -7,6 +7,12 @@ import Scoreboard from '../Scoreboard';
 
 describe('Scoreboard Container', () => {
     it('renders Scoreboard without crashing', () => {
-        shallow(<Scoreboard />);
+        shallow(
+            <Scoreboard
+                correctAnswers={1}
+                maxQuestions={10}
+                pastQuestionsLength={0}
+            />
+        );
     });
 });

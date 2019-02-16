@@ -19,7 +19,7 @@ const styles = {
     }
 };
 
-const NextButton = (props) => {
+export const NextButton = (props) => {
     const {
         classes,
         getQuestionsAPI,
