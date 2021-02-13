@@ -8,7 +8,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 // @components
 import Header from '../Header/Header';
-import Quiz from '../Quiz/Quiz';
+import CreateQuizForm from '../shared/forms/CreateQuizForm';
+// import Quiz from '../Quiz/Quiz';
 
 // @actions
 import { getQuestionsAPI } from '../../store/actions/api';
@@ -18,21 +19,21 @@ import './App.scss';
 
 class App extends Component {
     componentDidMount() {
-        this.props.getQuestionsAPI();
+        const { getQuestionsAPI } = this.props;
+        getQuestionsAPI();
     }
 
     render() {
         const { questionInfo } = this.props;
         // Display CircularProgress if app is loading
         if (!Array.isArray(questionInfo) || !questionInfo.length) {
-            return (
-                <CircularProgress />
-            );
+            return (<CircularProgress />);
         }
         return (
             <div className="App">
                 <Header />
-                <Quiz />
+                <CreateQuizForm />
+                {/* <Quiz /> */}
             </div>
         );
     }

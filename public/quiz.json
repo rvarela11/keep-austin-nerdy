@@ -1,0 +1,16 @@
+[
+  {
+    "category": {
+      "dataType": "string",
+      "value": ""
+    },
+    "difficulty": {
+      "dataType": "string",
+      "value": ""
+    },
+    "type": {
+      "dataType": "string",
+      "value": ""
+    }
+  }
+]
