@@ -8,8 +8,8 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
 // @actions
-import { getQuestionsAPI } from '../../actions/api';
-import { updatePastQuestions } from '../../actions/index';
+import { getQuestionsAPI } from '../../store/actions/api';
+import { updatePastQuestions } from '../../store/actions/index';
 
 // Setting material-ui classes
 const styles = {

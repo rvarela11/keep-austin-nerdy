@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 // @actions
-import { updateQuestionInfo } from '../../actions/index';
+import { updateQuestionInfo } from '../../store/actions/index';
 
 // @styles
 import './QuizCard.scss';

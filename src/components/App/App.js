@@ -11,15 +11,14 @@ import Header from '../Header/Header';
 import Quiz from '../Quiz/Quiz';
 
 // @actions
-import { getQuestionsAPI } from '../../actions/api';
+import { getQuestionsAPI } from '../../store/actions/api';
 
 // @styles
 import './App.scss';
 
 class App extends Component {
     componentDidMount() {
-        const { getQuestionsAPI } = this.props;
-        getQuestionsAPI();
+        this.props.getQuestionsAPI();
     }
 
     render() {

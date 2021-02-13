@@ -10,7 +10,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Root from './components/App/App';
 
 // @reducers
-import { reducer } from './reducers';
+import { reducer } from './store/reducers';
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
