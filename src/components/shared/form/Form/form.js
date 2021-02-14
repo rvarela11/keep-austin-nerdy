@@ -71,8 +71,18 @@ const form = (props) => {
                                         { 'card-actions--hide': !areButtonVisible }
                                     )}
                                 >
-                                    <Button size="small">Save</Button>
-                                    <Button size="small">Reset</Button>
+                                    <Button
+                                        onClick={() => console.log('SAVE')}
+                                        size="small"
+                                    >
+                                        Save
+                                    </Button>
+                                    <Button
+                                        onClick={() => handleReset()}
+                                        size="small"
+                                    >
+                                        Reset
+                                    </Button>
                                 </CardActions>
                             </Form>
                         );
