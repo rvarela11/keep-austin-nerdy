@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 // @components
 import Header from '../Header/Header';
-import Form from '../shared/form/form';
+import Form from '../shared/form/Form/form';
 // import Quiz from '../Quiz/Quiz';
 
 // @actions

@@ -1,3 +1,11 @@
+export const FIELD_TYPES = {
+    BOOLEAN: 'boolean',
+    DATETIME: 'dateTime',
+    INTEGER: 'integer',
+    REFERENCE: 'reference',
+    STRING: 'string',
+};
+
 export const generateValues = (form) => {
     let values = {};
     if (form.length > 0) {
