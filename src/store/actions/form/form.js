@@ -5,14 +5,14 @@ import * as types from '../actionTypes';
 const axios = require('axios');
 
 export const getFormQuestions = () => (dispatch) => {
-    const ax = axios.create({
-        baseURL: 'http://robertvarela.com/keep-austin-nerdy'
-    });
-    ax.get('questions.json')
+    // const ax = axios.create({
+    //     baseURL: 'http://robertvarela.com/keep-austin-nerdy'
+    // });
+    axios.get('formQuestions.json')
         .then(response => dispatch({
             type: types.GET_FORM_QUESTIONS,
             data: {
-                data: response.data
+                questions: response.data
             }
         }))
         .catch(error => console.log('Error', error));

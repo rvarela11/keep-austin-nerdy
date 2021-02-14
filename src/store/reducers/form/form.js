@@ -1,15 +1,17 @@
 // @actionTypes
 import * as types from '../../actions/actionTypes';
 
-export const initialState = {};
+export const initialState = {
+    form: []
+};
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case types.GET_FORM_QUESTIONS:
-            const { data } = action.data;
+            const { questions } = action.data;
             return {
                 ...state,
-                ...data
+                form: questions
             };
         default:
             return state;

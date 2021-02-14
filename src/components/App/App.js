@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 // @components
 import Header from '../Header/Header';
-import CreateQuizForm from '../shared/form/CreateQuizForm';
+import Form from '../shared/form/form';
 // import Quiz from '../Quiz/Quiz';
 
 // @actions
@@ -22,11 +22,10 @@ class App extends Component {
 
     render() {
         const { form } = this.props;
-        console.log({ form });
         return (
             <div className="App">
                 <Header />
-                <CreateQuizForm />
+                <Form form={form} />
                 {/* <Quiz /> */}
             </div>
         );
@@ -38,10 +37,11 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-    form: state.form
+    form: state.form.form
 });
 
 App.propTypes = {
+    form: PropTypes.array.isRequired,
     getFormQuestions: PropTypes.func.isRequired
 };
 
