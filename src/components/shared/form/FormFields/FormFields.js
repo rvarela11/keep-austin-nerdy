@@ -28,6 +28,10 @@ const FormFields = (props) => {
         onChange(event);
     };
 
+    const handleBlur = () => {
+        setFieldTouched(attr);
+    };
+
     const renderField = () => {
         if (dataType === FIELD_TYPES.STRING) {
             return (
@@ -35,6 +39,7 @@ const FormFields = (props) => {
                     name={attr}
                     label={label}
                     required={isRequired}
+                    onBlur={handleBlur}
                     onChange={handleChange}
                 />
             );
