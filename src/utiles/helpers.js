@@ -1,9 +1,13 @@
-export const FIELD_TYPES = {
+export const DATA_TYPES = {
     BOOLEAN: 'boolean',
-    DATETIME: 'dateTime',
     INTEGER: 'integer',
-    REFERENCE: 'reference',
     STRING: 'string'
+};
+
+export const FIELD_TYPES = {
+    boolean: 'boolean',
+    integer: 'number',
+    string: 'string'
 };
 
 export const generateValues = (form) => {
@@ -17,3 +21,8 @@ export const generateValues = (form) => {
     }
     return values;
 };
+
+export const generateOptions = data => data.map(item => ({
+    label: item.name,
+    value: item.id
+}));

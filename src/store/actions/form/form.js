@@ -1,6 +1,9 @@
 // @actionTypes
 import * as types from '../actionTypes';
 
+// @utiles
+import { generateOptions } from '../../../utiles/helpers';
+
 // @vendors
 const axios = require('axios');
 
@@ -15,7 +18,7 @@ export const getFormData = () => async (dispatch) => {
             const formData = response.data;
             formData[0].category = {
                 ...formData[0].category,
-                ...data
+                options: generateOptions(data.trivia_categories)
             };
             dispatch({
                 type: types.GET_FORM_DATA,

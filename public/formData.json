@@ -1,7 +1,6 @@
 [
   {
     "name": {
-      "id": 1,
       "label": "Name",
       "dataType": "string",
       "isRequired": false,
@@ -9,7 +8,6 @@
       "value": ""
     },
     "questions": {
-      "id": 2,
       "label": "Questions",
       "dataType": "integer",
       "isRequired": false,
@@ -17,7 +15,6 @@
       "value": 10
     },
     "category": {
-      "id": 3,
       "label": "Category",
       "dataType": "string",
       "isRequired": true,
@@ -26,20 +23,25 @@
       "value": ""
     },
     "difficulty": {
-      "id": 4,
       "label": "Difficulty",
       "dataType": "string",
       "isRequired": true,
-      "options": [],
+      "options": [
+        { "label": "Easy", "value": "easy" },
+        { "label": "Medium", "value": "medium" },
+        { "label": "Hard", "value": "hard" }
+      ],
       "readOnly": false,
       "value": ""
     },
     "type": {
-      "id": 5,
       "label": "Type",
       "dataType": "string",
       "isRequired": true,
-      "options": [],
+      "options": [
+        { "label": "Multiple Choice", "value": "multiple" },
+        { "label": "True / False", "value": "boolean" }
+      ],
       "readOnly": false,
       "value": ""
     }
