@@ -1,3 +1,19 @@
+// @styles
+@import '../../../../globals/scss/spacing';
+
+.card__form {
+  width: 375px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form > div {
+  margin: $spacing-xs 0;
+}
+
 .card-actions--hide {
   visibility: hidden;
 }

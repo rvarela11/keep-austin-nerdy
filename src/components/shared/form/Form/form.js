@@ -21,8 +21,9 @@ import './Form.scss';
 
 const form = (props) => {
     const { form } = props;
+
     return (
-        <Card>
+        <Card className="card__form">
             <CardContent>
                 <Formik
                     enableReinitialize
@@ -52,7 +53,7 @@ const form = (props) => {
                             form, dirty, areButtonVisible, values
                         });
                         return (
-                            <Form>
+                            <Form className="form">
                                 {
                                     Object.keys(values).map((attr, index) => (
                                         <FormFields

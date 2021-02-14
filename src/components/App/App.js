@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // @components
 import Header from '../Header/Header';
 import Form from '../shared/form/Form/Form';
+import Page from '../shared/page/Page';
 
 // @actions
 import { getFormData } from '../../store/actions/form/form';
@@ -24,7 +25,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <Form form={form} />
+                <Page>
+                    <Form form={form} />
+                </Page>
                 {/* <Quiz /> */}
             </div>
         );
