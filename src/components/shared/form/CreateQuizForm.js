@@ -29,7 +29,6 @@ const CreateQuizForm = () => (
             touched,
             values
         }) => {
-            console.log({ values });
             return (
                 <Form>
                     <div>Howdy</div>

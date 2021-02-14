@@ -10,9 +10,9 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Root from './components/App/App';
 
 // @reducers
-import { reducer } from './store/reducers';
+import rootReducer from './store/reducers/index';
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 // Setting the Material-UI theme
 const theme = createMuiTheme({

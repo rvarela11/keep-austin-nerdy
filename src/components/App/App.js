@@ -3,32 +3,26 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-// @material-ui
-import CircularProgress from '@material-ui/core/CircularProgress';
-
 // @components
 import Header from '../Header/Header';
-import CreateQuizForm from '../shared/forms/CreateQuizForm';
+import CreateQuizForm from '../shared/form/CreateQuizForm';
 // import Quiz from '../Quiz/Quiz';
 
 // @actions
-import { getQuestionsAPI } from '../../store/actions/api';
+import { getFormQuestions } from '../../store/actions/form/form';
 
 // @styles
 import './App.scss';
 
 class App extends Component {
     componentDidMount() {
-        const { getQuestionsAPI } = this.props;
-        getQuestionsAPI();
+        const { getFormQuestions } = this.props;
+        getFormQuestions();
     }
 
     render() {
-        const { questionInfo } = this.props;
-        // Display CircularProgress if app is loading
-        if (!Array.isArray(questionInfo) || !questionInfo.length) {
-            return (<CircularProgress />);
-        }
+        const { form } = this.props;
+        console.log({ form });
         return (
             <div className="App">
                 <Header />
@@ -40,16 +34,18 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    getQuestionsAPI: () => dispatch(getQuestionsAPI())
+    getFormQuestions: () => dispatch(getFormQuestions())
 });
 
 const mapStateToProps = state => ({
-    questionInfo: state.apiOneQuestion
+    form: state.form
 });
 
 App.propTypes = {
-    getQuestionsAPI: PropTypes.func.isRequired,
-    questionInfo: PropTypes.array.isRequired
+    getFormQuestions: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
