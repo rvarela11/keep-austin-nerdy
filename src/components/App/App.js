@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 // @components
 import Header from '../Header/Header';
 import Form from '../shared/form/Form/Form';
-// import Quiz from '../Quiz/Quiz';
 
 // @actions
 import { getFormData } from '../../store/actions/form/form';
