@@ -9,15 +9,15 @@ import Form from '../shared/form/Form/Form';
 // import Quiz from '../Quiz/Quiz';
 
 // @actions
-import { getFormQuestions } from '../../store/actions/form/form';
+import { getFormData } from '../../store/actions/form/form';
 
 // @styles
 import './App.scss';
 
 class App extends Component {
     componentDidMount() {
-        const { getFormQuestions } = this.props;
-        getFormQuestions();
+        const { getFormData } = this.props;
+        getFormData();
     }
 
     render() {
@@ -33,7 +33,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    getFormQuestions: () => dispatch(getFormQuestions())
+    getFormData: () => dispatch(getFormData())
 });
 
 const mapStateToProps = state => ({
@@ -42,7 +42,7 @@ const mapStateToProps = state => ({
 
 App.propTypes = {
     form: PropTypes.array.isRequired,
-    getFormQuestions: PropTypes.func.isRequired
+    getFormData: PropTypes.func.isRequired
 };
 
 export default connect(

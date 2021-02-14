@@ -1,2 +1,2 @@
 // Form Actions
-export const GET_FORM_QUESTIONS = 'GET_FORM_QUESTIONS';
+export const GET_FORM_DATA = 'GET_FORM_DATA';

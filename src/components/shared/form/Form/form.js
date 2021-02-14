@@ -35,7 +35,7 @@ const form = (props) => {
                 touched,
                 values
             }) => {
-                console.log({ dirty, values });
+                console.log({ form, dirty, values });
                 return (
                     <Form>
                         {
@@ -46,6 +46,7 @@ const form = (props) => {
                                     form={form[0]}
                                     onChange={handleChange}
                                     setFieldTouched={setFieldTouched}
+                                    value={values[attr]}
                                 />
                             ))
                         }

@@ -3,7 +3,7 @@ export const FIELD_TYPES = {
     DATETIME: 'dateTime',
     INTEGER: 'integer',
     REFERENCE: 'reference',
-    STRING: 'string',
+    STRING: 'string'
 };
 
 export const generateValues = (form) => {

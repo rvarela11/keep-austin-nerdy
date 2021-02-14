@@ -7,11 +7,11 @@ export const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case types.GET_FORM_QUESTIONS:
-            const { questions } = action.data;
+        case types.GET_FORM_DATA:
+            const { formData } = action.data;
             return {
                 ...state,
-                form: questions
+                form: formData
             };
         default:
             return state;

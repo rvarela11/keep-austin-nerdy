@@ -5,22 +5,21 @@ import PropTypes from 'prop-types';
 // @material-ui
 import TextField from '@material-ui/core/TextField';
 
-// @utiles
-import { FIELD_TYPES } from '../../../../utiles/helpers';
-
 const FormFields = (props) => {
     const {
         // Component props
         attr,
         form,
         onChange,
+        value,
         // Formik props
         setFieldTouched
     } = props;
     const {
         dataType,
         isRequired,
-        label
+        label,
+        readOnly
     } = form[attr];
 
     const handleChange = (event) => {
@@ -32,35 +31,31 @@ const FormFields = (props) => {
         setFieldTouched(attr);
     };
 
-    const renderField = () => {
-        if (dataType === FIELD_TYPES.STRING) {
-            return (
-                <TextField
-                    name={attr}
-                    label={label}
-                    required={isRequired}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                />
-            );
-        }
-        return null;
-    };
-
     return (
-        <div>{renderField()}</div>
+        <div>
+            <TextField
+                name={attr}
+                label={label}
+                disabled={readOnly}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                required={isRequired}
+                type={dataType}
+                value={value}
+            />
+        </div>
     );
 };
 
 FormFields.propTypes = {
     attr: PropTypes.string.isRequired,
-    form: PropTypes.shape({
-        dataType: PropTypes.string,
-        isRequired: PropTypes.string,
-        label: PropTypes.string
-    }).isRequired,
+    form: PropTypes.shape({}).isRequired,
     onChange: PropTypes.func.isRequired,
-    setFieldTouched: PropTypes.func.isRequired
+    setFieldTouched: PropTypes.func.isRequired,
+    value: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string
+    ]).isRequired
 };
 
 export default FormFields;

@@ -1,0 +1,47 @@
+[
+  {
+    "name": {
+      "id": 1,
+      "label": "Name",
+      "dataType": "string",
+      "isRequired": false,
+      "readOnly": false,
+      "value": ""
+    },
+    "questions": {
+      "id": 2,
+      "label": "Questions",
+      "dataType": "integer",
+      "isRequired": false,
+      "readOnly": true,   
+      "value": 10
+    },
+    "category": {
+      "id": 3,
+      "label": "Category",
+      "dataType": "string",
+      "isRequired": true,
+      "options": [],
+      "readOnly": false,
+      "value": ""
+    },
+    "difficulty": {
+      "id": 4,
+      "label": "Difficulty",
+      "dataType": "string",
+      "isRequired": true,
+      "options": [],
+      "readOnly": false,
+      "value": ""
+    },
+    "type": {
+      "id": 5,
+      "label": "Type",
+      "dataType": "string",
+      "isRequired": true,
+      "options": [],
+      "readOnly": false,
+      "value": ""
+    }
+  }
+]
