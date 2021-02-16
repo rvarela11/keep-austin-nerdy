@@ -28,7 +28,6 @@ class App extends Component {
                 <Page>
                     <Form form={form} />
                 </Page>
-                {/* <Quiz /> */}
             </div>
         );
     }

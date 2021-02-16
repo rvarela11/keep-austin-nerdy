@@ -14,7 +14,7 @@ import Button from '@material-ui/core/Button';
 import FormFields from '../FormFields/FormFields';
 
 // @utiles
-import { generateValues } from '../../../../utiles/helpers';
+import { generateValues, validateSchema } from '../../../../utiles/helpers';
 
 // @styles
 import './Form.scss';
@@ -29,8 +29,7 @@ const form = (props) => {
                     enableReinitialize
                     initialValues={generateValues(form)}
                     // onSubmit={values => submitModelForm(values, props)}
-                    // onReset={() => setResetForm(true)}
-                    // validationSchema={validateSchema(props)}
+                    validationSchema={validateSchema(form)}
                 >
                     {({
                         dirty,
@@ -50,8 +49,9 @@ const form = (props) => {
                     }) => {
                         const areButtonVisible = Object.keys(touched).length > 0 && dirty;
                         console.log({
-                            form, dirty, areButtonVisible, values
+                            errors, isValid
                         });
+
                         return (
                             <Form className="form">
                                 {
@@ -59,6 +59,7 @@ const form = (props) => {
                                         <FormFields
                                             key={index}
                                             attr={attr}
+                                            error={(touched[attr] && errors[attr]) && !isValid}
                                             form={form[0]}
                                             onChange={handleChange}
                                             setFieldTouched={setFieldTouched}

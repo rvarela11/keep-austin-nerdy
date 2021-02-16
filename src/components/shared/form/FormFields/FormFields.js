@@ -16,6 +16,7 @@ const FormFields = (props) => {
     const {
         // Component props
         attr,
+        error,
         form,
         onChange,
         value,
@@ -24,10 +25,10 @@ const FormFields = (props) => {
     } = props;
     const {
         dataType,
-        isRequired,
         label,
         options,
-        readOnly
+        readOnly,
+        required
     } = form[attr];
 
     const handleChange = (event) => {
@@ -45,9 +46,10 @@ const FormFields = (props) => {
                 name: attr,
                 label,
                 disabled: readOnly,
+                error,
                 onBlur: handleBlur,
                 onChange: handleChange,
-                required: isRequired,
+                required,
                 type: FIELD_TYPES[dataType],
                 value
             };
@@ -78,6 +80,7 @@ const FormFields = (props) => {
 
 FormFields.propTypes = {
     attr: PropTypes.string.isRequired,
+    error: PropTypes.bool,
     form: PropTypes.shape({}).isRequired,
     onChange: PropTypes.func.isRequired,
     setFieldTouched: PropTypes.func.isRequired,
@@ -85,6 +88,10 @@ FormFields.propTypes = {
         PropTypes.number,
         PropTypes.string
     ]).isRequired
+};
+
+FormFields.defaultProps = {
+    error: false
 };
 
 export default FormFields;
