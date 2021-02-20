@@ -14,7 +14,11 @@ import Button from '@material-ui/core/Button';
 import FormFields from '../FormFields/FormFields';
 
 // @utiles
-import { generateValues, validateSchema } from '../../../../utiles/helpers';
+import {
+    generateValues,
+    submitModelForm,
+    validateSchema
+} from '../../../../utiles/helpers';
 
 // @styles
 import './Form.scss';
@@ -28,7 +32,7 @@ const form = (props) => {
                 <Formik
                     enableReinitialize
                     initialValues={generateValues(form)}
-                    // onSubmit={values => submitModelForm(values, props)}
+                    onSubmit={values => submitModelForm(values, props)}
                     validationSchema={validateSchema(form)}
                 >
                     {({
@@ -47,10 +51,7 @@ const form = (props) => {
                         touched,
                         values
                     }) => {
-                        const areButtonVisible = Object.keys(touched).length > 0 && dirty;
-                        console.log({
-                            errors, isValid
-                        });
+                        const areButtonsVisible = Object.keys(touched).length > 0 && dirty;
 
                         return (
                             <Form className="form">
@@ -70,11 +71,12 @@ const form = (props) => {
                                 <CardActions
                                     className={className(
                                         'card-actions',
-                                        { 'card-actions--hide': !areButtonVisible }
+                                        { 'card-actions--hide': !areButtonsVisible }
                                     )}
                                 >
                                     <Button
-                                        onClick={() => console.log('SAVE')}
+                                        disabled={!isValid}
+                                        onClick={submitForm}
                                         size="small"
                                     >
                                         Save

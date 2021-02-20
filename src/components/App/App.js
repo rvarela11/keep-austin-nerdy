@@ -9,7 +9,7 @@ import Form from '../shared/form/Form/Form';
 import Page from '../shared/page/Page';
 
 // @actions
-import { getFormData } from '../../store/actions/form/form';
+import { getFormData, getQuestions } from '../../store/actions/form/form';
 
 // @styles
 import './App.scss';
@@ -20,13 +20,21 @@ class App extends Component {
         getFormData();
     }
 
+    handleOnSave = (values) => {
+        const { getQuestions } = this.props;
+        getQuestions(values);
+    }
+
     render() {
         const { form } = this.props;
         return (
             <div className="App">
                 <Header />
                 <Page>
-                    <Form form={form} />
+                    <Form
+                        form={form}
+                        onSave={this.handleOnSave}
+                    />
                 </Page>
             </div>
         );
@@ -34,7 +42,8 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    getFormData: () => dispatch(getFormData())
+    getFormData: () => dispatch(getFormData()),
+    getQuestions: values => dispatch(getQuestions(values))
 });
 
 const mapStateToProps = state => ({
@@ -43,7 +52,8 @@ const mapStateToProps = state => ({
 
 App.propTypes = {
     form: PropTypes.array.isRequired,
-    getFormData: PropTypes.func.isRequired
+    getFormData: PropTypes.func.isRequired,
+    getQuestions: PropTypes.func.isRequired
 };
 
 export default connect(

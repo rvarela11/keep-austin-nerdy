@@ -1,6 +1,6 @@
 [
   {
-    "questions": {
+    "amount": {
       "label": "Questions",
       "dataType": "integer",
       "readOnly": true,

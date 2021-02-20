@@ -30,6 +30,8 @@ export const generateOptions = data => data.map(item => ({
     value: item.id
 }));
 
+export const submitModelForm = (values, props) => props.onSave(values);
+
 export const validateSchema = (form) => {
     let schema = {};
     if (form.length > 0) {
