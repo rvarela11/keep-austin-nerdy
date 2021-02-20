@@ -1,18 +1,21 @@
-export const GET_QUESTIONS_DATA = 'GET_QUESTIONS_DATA';
-export const getQuestionsData = data => ({
-    type: GET_QUESTIONS_DATA,
-    payload: data
-});
+export const REQUEST = 'REQUEST';
+export const SUCCESS = 'SUCCESS';
+export const FAILURE = 'FAILURE';
 
-export const UPDATE_QUESTION_INFO = 'UPDATE_QUESTION_INFO';
-export const updateQuestionInfo = (isQuestionAnswered, isQuestionCorrect, questionId) => ({
-    type: UPDATE_QUESTION_INFO,
-    isQuestionAnswered,
-    isQuestionCorrect,
-    questionId
-});
+export function createRequestTypes(base) {
+    if (!base) {
+        throw new Error('cannot create request type with base = \'\' or base = null');
+    }
+    return [REQUEST, SUCCESS, FAILURE].reduce((accumulator, type) => {
+        // eslint-disable-next-line no-param-reassign
+        accumulator[type] = `${base}_${type}`;
+        return accumulator;
+    }, {});
+}
 
-export const UPDATE_PAST_QUESTIONS = 'UPDATE_PAST_QUESTIONS';
-export const updatePastQuestions = () => ({
-    type: UPDATE_PAST_QUESTIONS
-});
+export function createAction(type, payload = {}) {
+    return {
+        type,
+        ...payload
+    };
+}

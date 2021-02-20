@@ -9,30 +9,38 @@ import Form from '../shared/form/Form/Form';
 import Page from '../shared/page/Page';
 
 // @actions
-import { getFormData, getQuestions } from '../../store/actions/form/form';
+import { getFormDataAction } from '../../store/actions/form/form';
+import { getQuestionsAction } from '../../store/actions/quiz/quiz';
 
 // @styles
 import './App.scss';
 
 class App extends Component {
     componentDidMount() {
-        const { getFormData } = this.props;
-        getFormData();
+        const { getFormDataAction } = this.props;
+        getFormDataAction();
     }
 
     handleOnSave = (values) => {
-        const { getQuestions } = this.props;
-        getQuestions(values);
+        const { getQuestionsAction } = this.props;
+        getQuestionsAction(values);
     }
 
     render() {
-        const { form } = this.props;
+        const {
+            form: {
+                error,
+                isFetching,
+                results
+            }
+        } = this.props;
+
         return (
             <div className="App">
                 <Header />
-                <Page>
+                <Page error={error} isFetching={isFetching}>
                     <Form
-                        form={form}
+                        form={results}
                         onSave={this.handleOnSave}
                     />
                 </Page>
@@ -42,18 +50,22 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    getFormData: () => dispatch(getFormData()),
-    getQuestions: values => dispatch(getQuestions(values))
+    getFormDataAction: () => dispatch(getFormDataAction()),
+    getQuestionsAction: values => dispatch(getQuestionsAction(values))
 });
 
 const mapStateToProps = state => ({
-    form: state.form.form
+    form: state.form
 });
 
 App.propTypes = {
-    form: PropTypes.array.isRequired,
-    getFormData: PropTypes.func.isRequired,
-    getQuestions: PropTypes.func.isRequired
+    form: PropTypes.shape({
+        error: PropTypes.shape({}),
+        isFetching: PropTypes.bool,
+        results: PropTypes.array
+    }).isRequired,
+    getFormDataAction: PropTypes.func.isRequired,
+    getQuestionsAction: PropTypes.func.isRequired
 };
 
 export default connect(

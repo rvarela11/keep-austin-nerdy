@@ -16,12 +16,12 @@ export const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case types.GET_FORM_DATA[REQUEST]:
+        case types.GET_QUESTIONS[REQUEST]:
             return {
                 ...state,
                 isFetching: true
             };
-        case types.GET_FORM_DATA[SUCCESS]: {
+        case types.GET_QUESTIONS[SUCCESS]: {
             const { results } = action;
             return {
                 ...state,
@@ -29,7 +29,7 @@ export default function reducer(state = initialState, action) {
                 results
             };
         }
-        case types.GET_FORM_DATA[FAILURE]: {
+        case types.GET_QUESTIONS[FAILURE]: {
             const { error } = action;
             return {
                 ...state,
