@@ -1,6 +1,7 @@
 // @vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 // @material-ui
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -9,12 +10,17 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import './Page.scss';
 
 const Page = (props) => {
-    const { children, isFetching } = props;
+    const { children, error, isFetching } = props;
 
     const display = () => {
         if (isFetching) {
             return <CircularProgress />;
         }
+
+        if (!_.isEmpty(error)) {
+            return <div>Error</div>;
+        }
+
         return children;
     };
 
@@ -30,6 +36,7 @@ Page.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired,
+    error: PropTypes.shape({}).isRequired,
     isFetching: PropTypes.bool.isRequired
 };
 
