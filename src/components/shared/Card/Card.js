@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // @vendors
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -21,11 +22,19 @@ export const card = (props) => {
 
     const display = () => {
         if (!_.isEmpty(error)) {
-            return <div>Error</div>;
+            return (
+                <div className="content-center">
+                    Error
+                </div>
+            );
         }
 
         if (isFetching) {
-            return <CircularProgress />;
+            return (
+                <div className="content-center">
+                    <CircularProgress />
+                </div>
+            );
         }
 
         return children;
@@ -54,6 +63,7 @@ card.propTypes = {
 
 card.defaultProps = {
     className: '',
+    content_center: '',
     error: {},
     isFetching: false,
     title: ''

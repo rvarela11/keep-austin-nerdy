@@ -35,8 +35,8 @@ class FormContainer extends Component {
                 title="Start"
             >
                 <Form
-                    form={results}
                     onSave={this.handleOnSave}
+                    results={results}
                 />
             </Card>
         );

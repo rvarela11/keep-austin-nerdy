@@ -22,14 +22,14 @@ import {
 import './Form.scss';
 
 const form = (props) => {
-    const { form } = props;
+    const { results } = props;
 
     return (
         <Formik
             enableReinitialize
-            initialValues={generateValues(form)}
+            initialValues={generateValues(results)}
             onSubmit={values => submitModelForm(values, props)}
-            validationSchema={validateSchema(form)}
+            validationSchema={validateSchema(results)}
         >
             {({
                 dirty,
@@ -57,7 +57,7 @@ const form = (props) => {
                                     key={index}
                                     attr={attr}
                                     error={(touched[attr] && errors[attr]) && !isValid}
-                                    form={form[0]}
+                                    form={results[0]}
                                     onChange={handleChange}
                                     setFieldTouched={setFieldTouched}
                                     value={values[attr]}
@@ -71,9 +71,11 @@ const form = (props) => {
                             )}
                         >
                             <Button
+                                color="primary"
                                 disabled={!isValid}
                                 onClick={submitForm}
                                 size="small"
+                                variant="contained"
                             >
                                 Save
                             </Button>
@@ -92,7 +94,7 @@ const form = (props) => {
 };
 
 form.propTypes = {
-    form: PropTypes.array.isRequired
+    results: PropTypes.array.isRequired
 };
 
 export default form;
