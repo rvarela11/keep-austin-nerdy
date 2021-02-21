@@ -1,0 +1,7 @@
+// @styles
+@import '../../globals/scss/spacing';
+
+.quiz .question,
+.quiz > button {
+  margin-bottom: $spacing-md;
+}

@@ -8,9 +8,9 @@
 }
 
 .form > div {
-  margin: $spacing-xs 0;
+  margin-bottom: $spacing-xs;
 }
 
-.card-actions--hide {
-  visibility: hidden;
+.form > div:last-child {
+  margin-bottom: 0;
 }

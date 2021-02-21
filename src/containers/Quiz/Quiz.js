@@ -13,7 +13,14 @@ import Card from '../../components/shared/card/Card';
 import Quiz from '../../components/Quiz/Quiz';
 
 const QuizContainer = (props) => {
-    const { quiz: { error, isFetching, results } } = props;
+    const {
+        quiz: {
+            current,
+            error,
+            isFetching,
+            results
+        }
+    } = props;
 
     const display = () => {
         if (_.isEmpty(results) && _.isEmpty(error)) {
@@ -26,7 +33,7 @@ const QuizContainer = (props) => {
             );
         }
 
-        return (<Quiz results={results} />);
+        return (<Quiz current={current} results={results} />);
     };
 
 
@@ -46,6 +53,7 @@ const mapStateToProps = state => ({
 
 QuizContainer.propTypes = {
     quiz: PropTypes.shape({
+        current: PropTypes.number,
         error: PropTypes.shape({}),
         isFetching: PropTypes.bool,
         results: PropTypes.array

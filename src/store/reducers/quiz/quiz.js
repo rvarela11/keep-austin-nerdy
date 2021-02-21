@@ -9,6 +9,7 @@ import {
 } from '../../actions/index';
 
 export const initialState = {
+    current: 0,
     error: {},
     isFetching: false,
     results: []

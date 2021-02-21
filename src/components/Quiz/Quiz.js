@@ -1,9 +1,15 @@
 // @vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import className from 'classnames';
+
+// @material-ui
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
 
 // @components
-import Scoreboard from '../Scoreboard/Scoreboard';
+// import Scoreboard from '../Scoreboard/Scoreboard';
+import Question from '../Question/Question';
 // import QuizCard from '../QuizCard/QuizCard';
 // import NextButton from '../NextButton/NextButton';
 // import Results from '../Results/Results';
@@ -12,12 +18,11 @@ import Scoreboard from '../Scoreboard/Scoreboard';
 import './Quiz.scss';
 
 export const Quiz = (props) => {
-    const {
-        results
-    } = props;
+    const { current, results } = props;
+    const isButtonVisible = true;
+
     return (
         <div className="quiz">
-            <Scoreboard results={results} />
             {/* <Scoreboard
                 correctAnswers={correctAnswers}
                 maxQuestions={maxQuestions}
@@ -43,11 +48,30 @@ export const Quiz = (props) => {
                 )
                 : null
             } */}
+            {/* <Scoreboard results={results} /> */}
+            <Question item={results[current]} />
+            <CardActions
+                className={className(
+                    'card-actions',
+                    { 'card-actions--hide': !isButtonVisible }
+                )}
+            >
+                <Button
+                    color="primary"
+                    // disabled={!isValid}
+                    onClick={() => console.log('Next')}
+                    size="small"
+                    variant="contained"
+                >
+                    Next
+                </Button>
+            </CardActions>
         </div>
     );
 };
 
 Quiz.propTypes = {
+    current: PropTypes.number.isRequired,
     results: PropTypes.array.isRequired
 };
 
