@@ -1,14 +1,19 @@
 // @vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // @components
 import Page from '../Page';
 import FormContainer from '../../../../containers/Form/Form';
 
-export const Home = () => (
+export const Home = ({ history }) => (
     <Page>
-        <FormContainer />
+        <FormContainer history={history} />
     </Page>
 );
+
+Home.propTypes = {
+    history: PropTypes.shape({}).isRequired
+};
 
 export default Home;

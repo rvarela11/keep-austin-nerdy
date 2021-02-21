@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // @components
-import Card from '../../components/shared/Card/Card';
+import Card from '../../components/shared/card/Card';
 import Form from '../../components/shared/form/Form/Form';
 
 // @actions
 import { getFormDataAction } from '../../store/actions/form/form';
 import { getQuestionsAction } from '../../store/actions/quiz/quiz';
+
+// @utiles
+import { QUIZ_ROUTE } from '../../utiles/routes';
 
 class FormContainer extends Component {
     componentDidMount() {
@@ -18,8 +21,9 @@ class FormContainer extends Component {
     }
 
     handleOnSave = (values) => {
-        const { getQuestionsAction } = this.props;
+        const { getQuestionsAction, history } = this.props;
         getQuestionsAction(values);
+        history.replace(QUIZ_ROUTE);
     }
 
     render() {
@@ -55,7 +59,10 @@ FormContainer.propTypes = {
         results: PropTypes.array
     }).isRequired,
     getFormDataAction: PropTypes.func.isRequired,
-    getQuestionsAction: PropTypes.func.isRequired
+    getQuestionsAction: PropTypes.func.isRequired,
+    history: PropTypes.shape({
+        replace: PropTypes.func
+    }).isRequired
 };
 
 export default connect(
