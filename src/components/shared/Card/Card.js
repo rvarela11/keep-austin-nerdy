@@ -23,7 +23,7 @@ export const card = (props) => {
     const display = () => {
         if (!_.isEmpty(error)) {
             return (
-                <div className="content-center">
+                <div className="center-content">
                     Error
                 </div>
             );
@@ -31,7 +31,7 @@ export const card = (props) => {
 
         if (isFetching) {
             return (
-                <div className="content-center">
+                <div className="center-content">
                     <CircularProgress />
                 </div>
             );

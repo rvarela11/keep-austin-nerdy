@@ -18,7 +18,7 @@ const QuizContainer = (props) => {
     const display = () => {
         if (_.isEmpty(results) && _.isEmpty(error)) {
             return (
-                <div className="content-center">
+                <div className="center-content">
                     <Link to="/" className="button-link">
                         <Button variant="contained" color="primary">Start</Button>
                     </Link>
