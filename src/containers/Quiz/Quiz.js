@@ -17,13 +17,31 @@ const QuizContainer = (props) => {
         quiz: {
             current,
             error,
+            grade,
             isFetching,
             results
         }
     } = props;
+    const hideQuiz = _.isEmpty(results) && _.isEmpty(error);
+
+    const title = () => {
+        let title = 'Quiz';
+        if (!_.isEmpty(results)) {
+            title = results[0].category;
+        }
+        return title;
+    };
+
+    const subheader = () => {
+        let subheader = '';
+        if (!_.isEmpty(results)) {
+            subheader = `${current} of ${results.length}`;
+        }
+        return subheader;
+    };
 
     const display = () => {
-        if (_.isEmpty(results) && _.isEmpty(error)) {
+        if (hideQuiz) {
             return (
                 <div className="center-content">
                     <Link to="/" className="button-link">
@@ -36,12 +54,13 @@ const QuizContainer = (props) => {
         return (<Quiz current={current} results={results} />);
     };
 
-
     return (
         <Card
+            avatar_message={(hideQuiz) ? '' : `${grade}%`}
             error={error}
             isFetching={isFetching}
-            title="Quiz"
+            title={title()}
+            subheader={subheader()}
         >
             {display()}
         </Card>
@@ -55,6 +74,7 @@ QuizContainer.propTypes = {
     quiz: PropTypes.shape({
         current: PropTypes.number,
         error: PropTypes.shape({}),
+        grade: PropTypes.number,
         isFetching: PropTypes.bool,
         results: PropTypes.array
     }).isRequired

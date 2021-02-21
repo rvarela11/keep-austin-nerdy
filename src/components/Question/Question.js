@@ -23,7 +23,7 @@ const Question = (props) => {
 
     return (
         <>
-            <Typography className="question" variant="p">{question}</Typography>
+            <Typography className="question" variant="body1">{question}</Typography>
             {
                 answers.map(answer => (
                     <Button

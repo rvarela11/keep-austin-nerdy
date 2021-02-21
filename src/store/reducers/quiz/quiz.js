@@ -11,6 +11,7 @@ import {
 export const initialState = {
     current: 0,
     error: {},
+    grade: 0,
     isFetching: false,
     results: []
 };
