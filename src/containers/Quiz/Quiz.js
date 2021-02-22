@@ -27,7 +27,7 @@ const QuizContainer = (props) => {
     } = props;
     const hideQuiz = _.isEmpty(results) && _.isEmpty(error);
     const title = (!_.isEmpty(results)) ? results[0].category : 'Quiz';
-    const subheader = (!_.isEmpty(results)) ? `${current} of ${results.length}` : '';
+    const subheader = (!_.isEmpty(results)) ? `${current + 1} of ${results.length}` : '';
 
     const handleOnClickNext = () => {
         const { nextQuestionAction } = props;

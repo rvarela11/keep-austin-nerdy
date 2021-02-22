@@ -2,6 +2,11 @@
 @import '../../../globals/scss/spacing';
 
 .quiz .question,
-.quiz > button {
+.quiz > button,
+.quiz > div {
   margin-bottom: $spacing-md;
+}
+
+.quiz > div:last-child {
+  margin-bottom: 0;
 }
