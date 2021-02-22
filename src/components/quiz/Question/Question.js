@@ -45,7 +45,7 @@ class Question extends Component {
         const {
             answered,
             handleAnswer,
-            item: { question }
+            item: { correct_answer, question }
         } = this.props;
 
         return (
@@ -56,7 +56,7 @@ class Question extends Component {
                         <Button
                             key={answer}
                             disabled={answered}
-                            onClick={() => handleAnswer(answer)}
+                            onClick={() => handleAnswer(answer, correct_answer)}
                             size="small"
                             variant="outlined"
                         >

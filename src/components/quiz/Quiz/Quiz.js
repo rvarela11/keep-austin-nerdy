@@ -3,16 +3,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import className from 'classnames';
 
 // @material-ui
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
-import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 
 // @components
 import Question from '../Question/Question';
+import Result from '../Result/Result';
 
 // @styles
 import './Quiz.scss';
@@ -29,30 +27,25 @@ class Quiz extends Component {
         const { current } = this.props;
 
         if (!_.isEqual(prevCurrent, current)) {
-            // eslint-disable-next-line react/no-did-update-set-state
-            this.setState({ answered: false, isAnswerCorrect: false });
+            this.resetState();
         }
     }
 
-    handleAnswer = (answer) => {
-        const { current, results } = this.props;
-        const item = results[current];
-        const { correct_answer } = item;
+    resetState = () => {
+        this.setState({
+            answer: '',
+            answered: false,
+            isAnswerCorrect: false
+        });
+    }
 
+    handleAnswer = (answer, correct_answer) => {
         if (answer === correct_answer) {
             this.setState({ isAnswerCorrect: true });
         }
 
         this.setState({ answer, answered: true });
     };
-
-    getIcon = () => {
-        const { isAnswerCorrect } = this.state;
-        if (isAnswerCorrect) {
-            return (<CheckCircleOutlinedIcon />);
-        }
-        return (<CancelOutlinedIcon />);
-    }
 
     render() {
         const { answer, answered, isAnswerCorrect } = this.state;
@@ -69,20 +62,7 @@ class Quiz extends Component {
                     handleAnswer={this.handleAnswer}
                     item={results[current]}
                 />
-                { answered
-                    && (
-                        <div
-                            className={className(
-                                'result-icon',
-                                'center-content',
-                                { 'result-icon--correct': isAnswerCorrect }
-                            )}
-                        >
-                            {this.getIcon()}
-                            {answer}
-                        </div>
-                    )
-                }
+                { answered && <Result answer={answer} isAnswerCorrect={isAnswerCorrect} /> }
                 <CardActions className="card-actions">
                     <Button
                         color="primary"

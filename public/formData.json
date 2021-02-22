@@ -7,6 +7,16 @@
       "required": false,  
       "value": 10
     },
+    "type": {
+      "label": "Type",
+      "dataType": "string",
+      "options": [
+        { "label": "Multiple Choice", "value": "multiple" }
+      ],
+      "readOnly": true,
+      "required": true,
+      "value": "multiple"
+    },
     "category": {
       "label": "Category",
       "dataType": "string",
@@ -22,17 +32,6 @@
         { "label": "Easy", "value": "easy" },
         { "label": "Medium", "value": "medium" },
         { "label": "Hard", "value": "hard" }
-      ],
-      "readOnly": false,
-      "required": true,
-      "value": ""
-    },
-    "type": {
-      "label": "Type",
-      "dataType": "string",
-      "options": [
-        { "label": "Multiple Choice", "value": "multiple" },
-        { "label": "True / False", "value": "boolean" }
       ],
       "readOnly": false,
       "required": true,
