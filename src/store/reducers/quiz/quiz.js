@@ -26,8 +26,7 @@ export default function reducer(state = initialState, action) {
         case types.GET_QUESTIONS[SUCCESS]: {
             const { results } = action;
             return {
-                ...state,
-                isFetching: false,
+                ...initialState,
                 results
             };
         }
