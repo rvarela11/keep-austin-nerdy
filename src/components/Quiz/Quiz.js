@@ -8,47 +8,21 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
 // @components
-// import Scoreboard from '../Scoreboard/Scoreboard';
 import Question from '../Question/Question';
-// import QuizCard from '../QuizCard/QuizCard';
-// import NextButton from '../NextButton/NextButton';
-// import Results from '../Results/Results';
 
 // @styles
 import './Quiz.scss';
 
 export const Quiz = (props) => {
-    const { current, results } = props;
+    const {
+        current,
+        handleOnClickNext,
+        results
+    } = props;
     const isButtonVisible = true;
 
     return (
         <div className="quiz">
-            {/* <Scoreboard
-                correctAnswers={correctAnswers}
-                maxQuestions={maxQuestions}
-                pastQuestionsLength={pastQuestionsLength}
-            /> */}
-            {/* {(pastQuestionsLength <= maxQuestions)
-                ? questionInfo.map(item => (
-                    <QuizCard
-                        key={item.id}
-                        item={item}
-                        isQuestionAnswered={isQuestionAnswered}
-                    />
-                ))
-                : <Results correctAnswers={correctAnswers} />
-            }
-            {(pastQuestionsLength <= maxQuestions)
-                ? (
-                    <NextButton
-                        isQuestionAnswered={isQuestionAnswered}
-                        maxQuestions={maxQuestions}
-                        pastQuestionsLength={pastQuestionsLength}
-                    />
-                )
-                : null
-            } */}
-            {/* <Scoreboard results={results} /> */}
             <Question item={results[current]} />
             <CardActions
                 className={className(
@@ -58,8 +32,8 @@ export const Quiz = (props) => {
             >
                 <Button
                     color="primary"
-                    // disabled={!isValid}
-                    onClick={() => console.log('Next')}
+                    // disabled={!isQuestionAnswered}
+                    onClick={handleOnClickNext}
                     size="small"
                     variant="contained"
                 >
@@ -72,6 +46,7 @@ export const Quiz = (props) => {
 
 Quiz.propTypes = {
     current: PropTypes.number.isRequired,
+    handleOnClickNext: PropTypes.func.isRequired,
     results: PropTypes.array.isRequired
 };
 

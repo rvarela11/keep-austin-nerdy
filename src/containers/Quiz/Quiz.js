@@ -40,6 +40,10 @@ const QuizContainer = (props) => {
         return subheader;
     };
 
+    const handleOnClickNext = () => {
+        console.log('handleOnClickNext');
+    };
+
     const display = () => {
         if (hideQuiz) {
             return (
@@ -51,7 +55,7 @@ const QuizContainer = (props) => {
             );
         }
 
-        return (<Quiz current={current} results={results} />);
+        return (<Quiz current={current} handleOnClickNext={handleOnClickNext} results={results} />);
     };
 
     return (
