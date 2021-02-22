@@ -32,3 +32,9 @@ export const getQuestionsAction = values => async (dispatch) => {
         dispatch(quizActions.failure({ status, statusText }));
     }
 };
+
+export const nextQuestionAction = () => async (dispatch) => {
+    dispatch({
+        type: types.NEXT_QUESTION
+    });
+};

@@ -1,7 +1,6 @@
 // @vendors
 import React from 'react';
 import PropTypes from 'prop-types';
-import className from 'classnames';
 
 // @material-ui
 import CardActions from '@material-ui/core/CardActions';
@@ -19,17 +18,11 @@ export const Quiz = (props) => {
         handleOnClickNext,
         results
     } = props;
-    const isButtonVisible = true;
 
     return (
         <div className="quiz">
             <Question item={results[current]} />
-            <CardActions
-                className={className(
-                    'card-actions',
-                    { 'card-actions--hide': !isButtonVisible }
-                )}
-            >
+            <CardActions className="card-actions">
                 <Button
                     color="primary"
                     // disabled={!isQuestionAnswered}

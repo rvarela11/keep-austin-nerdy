@@ -10,7 +10,10 @@ import Button from '@material-ui/core/Button';
 
 // @components
 import Card from '../../components/shared/card/Card';
-import Quiz from '../../components/Quiz/Quiz';
+import Quiz from '../../components/quiz/Quiz/Quiz';
+
+// @actions
+import { nextQuestionAction } from '../../store/actions/quiz/quiz';
 
 const QuizContainer = (props) => {
     const {
@@ -23,25 +26,12 @@ const QuizContainer = (props) => {
         }
     } = props;
     const hideQuiz = _.isEmpty(results) && _.isEmpty(error);
-
-    const title = () => {
-        let title = 'Quiz';
-        if (!_.isEmpty(results)) {
-            title = results[0].category;
-        }
-        return title;
-    };
-
-    const subheader = () => {
-        let subheader = '';
-        if (!_.isEmpty(results)) {
-            subheader = `${current} of ${results.length}`;
-        }
-        return subheader;
-    };
+    const title = (!_.isEmpty(results)) ? results[0].category : 'Quiz';
+    const subheader = (!_.isEmpty(results)) ? `${current} of ${results.length}` : '';
 
     const handleOnClickNext = () => {
-        console.log('handleOnClickNext');
+        const { nextQuestionAction } = props;
+        nextQuestionAction();
     };
 
     const display = () => {
@@ -55,7 +45,13 @@ const QuizContainer = (props) => {
             );
         }
 
-        return (<Quiz current={current} handleOnClickNext={handleOnClickNext} results={results} />);
+        return (
+            <Quiz
+                current={current}
+                handleOnClickNext={handleOnClickNext}
+                results={results}
+            />
+        );
     };
 
     return (
@@ -63,13 +59,18 @@ const QuizContainer = (props) => {
             avatar_message={(hideQuiz) ? '' : `${grade}%`}
             error={error}
             isFetching={isFetching}
-            title={title()}
-            subheader={subheader()}
+            title={title}
+            subheader={subheader}
         >
             {display()}
         </Card>
     );
 };
+
+const mapDispatchToProps = dispatch => ({
+    nextQuestionAction: () => dispatch(nextQuestionAction())
+});
+
 const mapStateToProps = state => ({
     quiz: state.quiz
 });
@@ -81,10 +82,11 @@ QuizContainer.propTypes = {
         grade: PropTypes.number,
         isFetching: PropTypes.bool,
         results: PropTypes.array
-    }).isRequired
+    }).isRequired,
+    nextQuestionAction: PropTypes.func.isRequired
 };
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(QuizContainer);

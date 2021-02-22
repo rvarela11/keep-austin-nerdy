@@ -39,6 +39,11 @@ export default function reducer(state = initialState, action) {
                 isFetching: false
             };
         }
+        case types.NEXT_QUESTION:
+            return {
+                ...state,
+                current: state.current + 1
+            };
         default:
             return state;
     }
