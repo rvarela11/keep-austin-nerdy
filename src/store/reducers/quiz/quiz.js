@@ -20,13 +20,14 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case types.GET_QUESTIONS[REQUEST]:
             return {
-                ...state,
+                ...initialState,
                 isFetching: true
             };
         case types.GET_QUESTIONS[SUCCESS]: {
             const { results } = action;
             return {
-                ...initialState,
+                ...state,
+                isFetching: false,
                 results
             };
         }

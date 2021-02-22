@@ -10,17 +10,19 @@ import Button from '@material-ui/core/Button';
 
 // @components
 import Question from '../Question/Question';
-import Result from '../Result/Result';
+import Answer from '../Answer/Answer';
 
 // @styles
 import './Quiz.scss';
 
+const initialState = {
+    answer: '',
+    answered: false,
+    isAnswerCorrect: false
+};
+
 class Quiz extends Component {
-    state = {
-        answer: '',
-        answered: false,
-        isAnswerCorrect: false
-    }
+    state = initialState;
 
     componentDidUpdate(prevProps) {
         const prevCurrent = prevProps.current;
@@ -32,11 +34,7 @@ class Quiz extends Component {
     }
 
     resetState = () => {
-        this.setState({
-            answer: '',
-            answered: false,
-            isAnswerCorrect: false
-        });
+        this.setState(initialState);
     }
 
     handleAnswer = (answer, correct_answer) => {
@@ -62,7 +60,9 @@ class Quiz extends Component {
                     handleAnswer={this.handleAnswer}
                     item={results[current]}
                 />
-                { answered && <Result answer={answer} isAnswerCorrect={isAnswerCorrect} /> }
+                { answered
+                    && <Answer answer={answer} isAnswerCorrect={isAnswerCorrect} />
+                }
                 <CardActions className="card-actions">
                     <Button
                         color="primary"

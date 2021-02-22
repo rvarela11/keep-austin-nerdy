@@ -1,16 +1,16 @@
 // @styles
 @import '../../../globals/scss/spacing';
 
-.result-icon {
+.answer {
     display: flex;
     flex: 1;
 }
 
-.result-icon svg {
+.answer svg {
     color: red;
     margin-right: $spacing-2xs;
 }
 
-.result-icon--correct svg {
+.answer--correct svg {
     color: green;
 }

@@ -8,9 +8,6 @@ import _ from 'lodash';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-// @styles
-import './Question.scss';
-
 class Question extends Component {
     state = {
         answers: []

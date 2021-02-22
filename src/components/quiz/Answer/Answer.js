@@ -8,36 +8,29 @@ import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 
 // @styles
-import './Result.scss';
+import './Answer.scss';
 
-const Result = (props) => {
+const Answer = (props) => {
     const { answer, isAnswerCorrect } = props;
-
-    const displayIcon = () => {
-        if (isAnswerCorrect) {
-            return (<CheckCircleOutlinedIcon />);
-        }
-        return (<CancelOutlinedIcon />);
-    };
 
     return (
         <div
             className={className(
-                'result-icon',
+                'answer',
                 'center-content',
-                { 'result-icon--correct': isAnswerCorrect }
+                { 'answer--correct': isAnswerCorrect }
             )}
         >
-            {displayIcon()}
+            {(isAnswerCorrect) ? <CheckCircleOutlinedIcon /> : <CancelOutlinedIcon />}
             {answer}
         </div>
     );
 };
 
 
-Result.propTypes = {
+Answer.propTypes = {
     answer: PropTypes.string.isRequired,
     isAnswerCorrect: PropTypes.bool.isRequired
 };
 
-export default Result;
+export default Answer;
