@@ -38,3 +38,9 @@ export const nextQuestionAction = () => async (dispatch) => {
         type: types.NEXT_QUESTION
     });
 };
+
+export const gradeAction = () => async (dispatch) => {
+    dispatch({
+        type: types.GRADE
+    });
+};

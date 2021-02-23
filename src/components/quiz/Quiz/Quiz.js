@@ -38,7 +38,10 @@ class Quiz extends Component {
     }
 
     handleAnswer = (answer, correct_answer) => {
+        const { handleGrade } = this.props;
+
         if (answer === correct_answer) {
+            handleGrade();
             this.setState({ isAnswerCorrect: true });
         }
 
@@ -81,6 +84,7 @@ class Quiz extends Component {
 
 Quiz.propTypes = {
     current: PropTypes.number.isRequired,
+    handleGrade: PropTypes.func.isRequired,
     handleOnClickNext: PropTypes.func.isRequired,
     results: PropTypes.array.isRequired
 };

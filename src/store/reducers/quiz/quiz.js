@@ -44,6 +44,11 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 current: state.current + 1
             };
+        case types.GRADE:
+            return {
+                ...state,
+                grade: state.grade + 10
+            };
         default:
             return state;
     }

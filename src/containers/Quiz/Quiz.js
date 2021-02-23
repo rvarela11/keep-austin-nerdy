@@ -13,7 +13,7 @@ import Card from '../../components/shared/card/Card';
 import Quiz from '../../components/quiz/Quiz/Quiz';
 
 // @actions
-import { nextQuestionAction } from '../../store/actions/quiz/quiz';
+import { gradeAction, nextQuestionAction } from '../../store/actions/quiz/quiz';
 
 const QuizContainer = (props) => {
     const {
@@ -28,6 +28,11 @@ const QuizContainer = (props) => {
     const hideQuiz = _.isEmpty(results) && _.isEmpty(error);
     const title = (!_.isEmpty(results)) ? results[0].category : 'Quiz';
     const subheader = (!_.isEmpty(results)) ? `${current + 1} of ${results.length}` : '';
+
+    const handleGrade = () => {
+        const { gradeAction } = props;
+        gradeAction();
+    };
 
     const handleOnClickNext = () => {
         const { nextQuestionAction } = props;
@@ -49,6 +54,7 @@ const QuizContainer = (props) => {
             <Quiz
                 current={current}
                 handleOnClickNext={handleOnClickNext}
+                handleGrade={handleGrade}
                 results={results}
             />
         );
@@ -68,6 +74,7 @@ const QuizContainer = (props) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+    gradeAction: () => dispatch(gradeAction()),
     nextQuestionAction: () => dispatch(nextQuestionAction())
 });
 
@@ -76,14 +83,15 @@ const mapStateToProps = state => ({
 });
 
 QuizContainer.propTypes = {
+    gradeAction: PropTypes.func.isRequired,
+    nextQuestionAction: PropTypes.func.isRequired,
     quiz: PropTypes.shape({
         current: PropTypes.number,
         error: PropTypes.shape({}),
         grade: PropTypes.number,
         isFetching: PropTypes.bool,
         results: PropTypes.array
-    }).isRequired,
-    nextQuestionAction: PropTypes.func.isRequired
+    }).isRequired
 };
 
 export default connect(
