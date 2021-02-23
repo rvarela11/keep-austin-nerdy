@@ -12,7 +12,7 @@ import Avatar from '@material-ui/core/Avatar';
 // @styles
 import './Card.scss';
 
-export const card = (props) => {
+const card = (props) => {
     const {
         avatar_message,
         children,

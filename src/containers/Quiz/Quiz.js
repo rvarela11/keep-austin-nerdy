@@ -3,14 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
-
-// @material-ui
-import Button from '@material-ui/core/Button';
 
 // @components
 import Card from '../../components/shared/card/Card';
 import Quiz from '../../components/quiz/Quiz/Quiz';
+import HomeLink from '../../components/shared/links/HomeLink/HomeLink';
 
 // @actions
 import { gradeAction, nextQuestionAction } from '../../store/actions/quiz/quiz';
@@ -49,13 +46,7 @@ const QuizContainer = (props) => {
 
     const display = () => {
         if (hideQuiz) {
-            return (
-                <div className="center-content">
-                    <Link to="/" className="button-link">
-                        <Button variant="contained" color="primary">Start</Button>
-                    </Link>
-                </div>
-            );
+            return (<HomeLink />);
         }
 
         return (
@@ -71,7 +62,7 @@ const QuizContainer = (props) => {
 
     return (
         <Card
-            avatar_message={(hideQuiz) ? '' : `${grade}%`}
+            avatar_message={`${grade}%`}
             error={error}
             isFetching={isFetching}
             title={title}
