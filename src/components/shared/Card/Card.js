@@ -25,7 +25,7 @@ export const card = (props) => {
     const cardHeaderProps = {};
 
     if (avatar_message) {
-        cardHeaderProps.avatar = (<Avatar>{avatar_message}</Avatar>);
+        cardHeaderProps.avatar = (<Avatar className="card-header__avatar">{avatar_message}</Avatar>);
     }
 
     const display = () => {

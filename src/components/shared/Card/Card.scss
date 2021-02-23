@@ -1,5 +1,12 @@
+// @styles
+@import '../../../globals/scss/spacing';
+
 .card {
   width: 375px;
+}
+
+.card-header__avatar {
+  padding: $spacing-2xs;
 }
 
 .card-content {
