@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import className from 'classnames';
 
 // @material-ui
 import CardActions from '@material-ui/core/CardActions';

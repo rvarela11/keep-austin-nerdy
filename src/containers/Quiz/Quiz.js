@@ -15,6 +15,9 @@ import Quiz from '../../components/quiz/Quiz/Quiz';
 // @actions
 import { gradeAction, nextQuestionAction } from '../../store/actions/quiz/quiz';
 
+// @utiles
+import { RESULTS_ROUTE } from '../../utiles/routes';
+
 const QuizContainer = (props) => {
     const {
         quiz: {
@@ -40,7 +43,8 @@ const QuizContainer = (props) => {
     };
 
     const handleOnClickFinish = () => {
-        console.log('handleOnClickFinish');
+        const { history } = props;
+        history.replace(RESULTS_ROUTE);
     };
 
     const display = () => {
@@ -88,6 +92,9 @@ const mapStateToProps = state => ({
 });
 
 QuizContainer.propTypes = {
+    history: PropTypes.shape({
+        replace: PropTypes.func
+    }).isRequired,
     gradeAction: PropTypes.func.isRequired,
     nextQuestionAction: PropTypes.func.isRequired,
     quiz: PropTypes.shape({
