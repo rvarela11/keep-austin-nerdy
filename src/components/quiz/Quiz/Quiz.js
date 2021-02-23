@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import className from 'classnames';
 
 // @material-ui
 import CardActions from '@material-ui/core/CardActions';
@@ -48,13 +49,42 @@ class Quiz extends Component {
         this.setState({ answer, answered: true });
     };
 
-    render() {
-        const { answer, answered, isAnswerCorrect } = this.state;
+    diplayButton = () => {
+        const { answered } = this.state;
         const {
             current,
             handleOnClickNext,
+            handleOnClickFinish,
             results
         } = this.props;
+        const finish = ((current + 1) === results.length);
+        const buttonProps = {
+            onClick: handleOnClickNext,
+            label: 'Next'
+        };
+
+        if (finish) {
+            buttonProps.className = 'card-actions__finish';
+            buttonProps.onClick = handleOnClickFinish;
+            buttonProps.label = 'Finish';
+        }
+
+        return (
+            <Button
+                {...buttonProps}
+                color="primary"
+                disabled={!answered}
+                size="small"
+                variant="contained"
+            >
+                {buttonProps.label}
+            </Button>
+        );
+    }
+
+    render() {
+        const { answer, answered, isAnswerCorrect } = this.state;
+        const { current, results } = this.props;
 
         return (
             <div className="quiz">
@@ -67,15 +97,7 @@ class Quiz extends Component {
                     && <Answer answer={answer} isAnswerCorrect={isAnswerCorrect} />
                 }
                 <CardActions className="card-actions">
-                    <Button
-                        color="primary"
-                        disabled={!answered}
-                        onClick={handleOnClickNext}
-                        size="small"
-                        variant="contained"
-                    >
-                        Next
-                    </Button>
+                    {this.diplayButton()}
                 </CardActions>
             </div>
         );
@@ -86,6 +108,7 @@ Quiz.propTypes = {
     current: PropTypes.number.isRequired,
     handleGrade: PropTypes.func.isRequired,
     handleOnClickNext: PropTypes.func.isRequired,
+    handleOnClickFinish: PropTypes.func.isRequired,
     results: PropTypes.array.isRequired
 };
 

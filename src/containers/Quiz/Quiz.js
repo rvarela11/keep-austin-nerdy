@@ -39,6 +39,10 @@ const QuizContainer = (props) => {
         nextQuestionAction();
     };
 
+    const handleOnClickFinish = () => {
+        console.log('handleOnClickFinish');
+    };
+
     const display = () => {
         if (hideQuiz) {
             return (
@@ -54,6 +58,7 @@ const QuizContainer = (props) => {
             <Quiz
                 current={current}
                 handleOnClickNext={handleOnClickNext}
+                handleOnClickFinish={handleOnClickFinish}
                 handleGrade={handleGrade}
                 results={results}
             />
