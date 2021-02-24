@@ -10,6 +10,10 @@ import {
 } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+
+// @components
+import HomeLink from '../links/HomeLink/HomeLink';
 
 // @styles
 import './Card.scss';
@@ -42,8 +46,9 @@ const card = (props) => {
 
         if (!_.isEmpty(error)) {
             return (
-                <div className="center-content">
-                    Error
+                <div className="center-content error">
+                    <Typography className="error_title" variant="h2">Error</Typography>
+                    <HomeLink label="Home" />
                 </div>
             );
         }
