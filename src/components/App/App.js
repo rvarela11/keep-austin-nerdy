@@ -22,7 +22,7 @@ import * as routes from '../../utiles/routes';
 
 const App = () => (
     <div className="App">
-        <Router>
+        <Router basename={routes.BASE_ROUTE}>
             <Header />
             <Switch>
                 <Route exact path={routes.BASE_ROUTE} component={Home} />
