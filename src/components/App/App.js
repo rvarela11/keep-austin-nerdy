@@ -25,7 +25,7 @@ const App = () => (
         <Router basename={routes.BASE_ROUTE}>
             <Header />
             <Switch>
-                <Route exact path={routes.BASE_ROUTE} component={Home} />
+                <Route exact path={routes.HOME_ROUTE} component={Home} />
                 <Route exact path={routes.QUIZ_ROUTE} component={Quiz} />
                 <Route exact path={routes.RESULTS_ROUTE} component={Results} />
                 <Route exact path={routes.NOT_FOUND_ROUTE} component={NotFound} />
