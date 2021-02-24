@@ -6,6 +6,7 @@ import _ from 'lodash';
 
 // @components
 import Card from '../../components/shared/card/Card';
+import Results from '../../components/Results/Results';
 import HomeLink from '../../components/shared/links/HomeLink/HomeLink';
 
 const ResultsContainer = (props) => {
@@ -21,11 +22,11 @@ const ResultsContainer = (props) => {
 
     const display = () => {
         if (hideQuiz) {
-            return (<HomeLink />);
+            return (<HomeLink className="center-content" />);
         }
 
         return (
-            <div>Results</div>
+            <Results results={results} />
         );
     };
 

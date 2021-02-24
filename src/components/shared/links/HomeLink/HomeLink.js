@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 const HomeLink = (props) => {
-    const { label } = props;
+    const { className, label } = props;
 
     return (
-        <div className="center-content">
+        <div className={className}>
             <Link to="/" className="button-link">
                 <Button variant="contained" color="primary">{label}</Button>
             </Link>
@@ -19,10 +19,12 @@ const HomeLink = (props) => {
 };
 
 HomeLink.propTypes = {
+    className: PropTypes.string,
     label: PropTypes.string
 };
 
 HomeLink.defaultProps = {
+    className: '',
     label: 'Start'
 };
 

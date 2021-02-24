@@ -1,0 +1,30 @@
+// @styles
+@import '../../globals/scss/spacing';
+
+.results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.results > div {
+  margin-bottom: $spacing-md;
+  display: flex;
+}
+
+.results .results__number {
+    margin-right: $spacing-lg;
+}
+
+.results .results__number-double {
+    margin-right: $spacing-sm;
+}
+
+.results .results__q-and-a {
+    width: 100%;
+}
+
+.results .results__answer {
+    background-color: #eeeeee;
+    text-align: center;
+}

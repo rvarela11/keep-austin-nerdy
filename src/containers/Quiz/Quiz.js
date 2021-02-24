@@ -46,7 +46,7 @@ const QuizContainer = (props) => {
 
     const display = () => {
         if (hideQuiz) {
-            return (<HomeLink />);
+            return (<HomeLink className="center-content" />);
         }
 
         return (
