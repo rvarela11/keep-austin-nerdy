@@ -6,12 +6,15 @@ import { Link } from 'react-router-dom';
 // @material-ui
 import Button from '@material-ui/core/Button';
 
+// @utiles
+import { BASE_ROUTE } from '../../../../utiles/routes';
+
 const HomeLink = (props) => {
     const { className, label } = props;
 
     return (
         <div className={className}>
-            <Link to="/" className="button-link">
+            <Link to={BASE_ROUTE} className="button-link">
                 <Button color="primary" size="small" variant="contained">{label}</Button>
             </Link>
         </div>
