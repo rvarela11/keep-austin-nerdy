@@ -1,0 +1,13 @@
+// @styles
+@import '../../../../globals/scss/spacing';
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found .not-found__title {
+  margin-bottom: $spacing-md;
+}

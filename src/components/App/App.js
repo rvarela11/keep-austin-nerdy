@@ -12,6 +12,7 @@ import Header from '../Header/Header';
 import Home from '../shared/pages/Home/Home';
 import Quiz from '../shared/pages/Quiz/Quiz';
 import Results from '../shared/pages/Results/Results';
+import NotFound from '../shared/pages/NotFound/NotFound';
 
 // @styles
 import './App.scss';
@@ -27,6 +28,7 @@ const App = () => (
                 <Route exact path={routes.BASE_ROUTE} component={Home} />
                 <Route exact path={routes.QUIZ_ROUTE} component={Quiz} />
                 <Route exact path={routes.RESULTS_ROUTE} component={Results} />
+                <Route exact path={routes.NOT_FOUND_ROUTE} component={NotFound} />
                 <Redirect to={routes.NOT_FOUND_ROUTE} />
             </Switch>
         </Router>
