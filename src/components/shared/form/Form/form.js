@@ -61,8 +61,8 @@ const form = (props) => {
                         }
                         <CardActions
                             className={className(
-                                'card-actions',
-                                { 'card-actions--hide': !areButtonsVisible }
+                                'card-actions__form',
+                                { 'card-actions__form--hide': !areButtonsVisible }
                             )}
                         >
                             <Button

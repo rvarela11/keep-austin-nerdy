@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 // @components
 import Card from '../../components/shared/card/Card';
-import Form from '../../components/shared/form/Form/Form';
+import Form from '../../components/shared/form/Form/form';
 
 // @actions
 import { getFormDataAction } from '../../store/actions/form/form';
