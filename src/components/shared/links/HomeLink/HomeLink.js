@@ -12,7 +12,7 @@ const HomeLink = (props) => {
     return (
         <div className={className}>
             <Link to="/" className="button-link">
-                <Button variant="contained" color="primary">{label}</Button>
+                <Button color="primary" size="small" variant="contained">{label}</Button>
             </Link>
         </div>
     );

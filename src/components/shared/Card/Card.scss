@@ -3,17 +3,21 @@
 
 .card {
   width: 400px;
+  height: 600px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-header__avatar {
   padding: $spacing-2xs;
 }
 
-.card-content {
-  height: 400px;
-  max-height: 400px;
+.card .card-content {
   overflow-y: scroll;
   display: flex;
+  flex: 1;
+  padding: 16px;
 }
 
 .center-content {
@@ -21,4 +25,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card .card-actions {
+  padding: 16px;
+}
+
+.card .MuiCardContent-root-71:last-child {
+  padding: 16px;
 }
