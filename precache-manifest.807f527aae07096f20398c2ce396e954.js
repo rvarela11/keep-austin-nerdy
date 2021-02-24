@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/keep-austin-nerdy/static/media/keep_austin_nerdy.e382fb5f.jpg"
   },
   {
-    "revision": "f22ba0fb92f167ee4f97d58a4e30a465",
+    "revision": "619260c32e450e06edba5edd520226ed",
     "url": "/keep-austin-nerdy/index.html"
   }
 ];
