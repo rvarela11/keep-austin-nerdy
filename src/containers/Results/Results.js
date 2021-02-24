@@ -30,8 +30,14 @@ const ResultsContainer = (props) => {
         );
     };
 
+    const diplayButton = () => (
+        !hideQuiz
+            && <HomeLink label="Restart" />
+    );
+
     return (
         <Card
+            actions={diplayButton()}
             avatar_message={`${grade}%`}
             error={{}}
             isFetching={false}

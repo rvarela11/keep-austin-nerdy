@@ -34,15 +34,10 @@ const form = (props) => {
             {({
                 dirty,
                 errors,
-                handleBlur,
                 handleChange,
                 handleReset,
-                isSubmitting,
                 isValid,
                 setFieldTouched,
-                setFieldValue,
-                setStatus,
-                status,
                 submitForm,
                 touched,
                 values

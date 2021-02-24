@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import className from 'classnames';
 
 // @material-ui
-import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import HomeLink from '../shared/links/HomeLink/HomeLink';
 
 // @styles
 import './Results.scss';
@@ -19,7 +17,7 @@ const Results = ({ results }) => (
                 const { correct_answer, question } = item;
                 const count = index + 1;
                 return (
-                    <div>
+                    <div key={index}>
                         <div
                             className={className(
                                 'results__number',
@@ -36,9 +34,6 @@ const Results = ({ results }) => (
                 );
             })
         }
-        <CardActions className="card-actions">
-            <HomeLink label="Restart" />
-        </CardActions>
     </div>
 );
 
