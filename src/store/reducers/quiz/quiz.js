@@ -9,7 +9,7 @@ import {
 } from '../../actions/index';
 
 export const initialState = {
-    current: 9,
+    current: 0,
     error: {},
     grade: 0,
     isFetching: false,

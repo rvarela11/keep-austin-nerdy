@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 // @material-ui
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import {
+    Card, CardHeader, CardContent, CardActions
+} from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Avatar from '@material-ui/core/Avatar';
 
@@ -14,6 +16,7 @@ import './Card.scss';
 
 const card = (props) => {
     const {
+        actions,
         avatar_message,
         children,
         className,
@@ -58,11 +61,22 @@ const card = (props) => {
             <CardContent className="card-content">
                 {display()}
             </CardContent>
+            { actions
+                    && (
+                        <CardActions className="card-actions">
+                            {actions}
+                        </CardActions>
+                    )
+            }
         </Card>
     );
 };
 
 card.propTypes = {
+    actions: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]),
     avatar_message: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
@@ -76,6 +90,7 @@ card.propTypes = {
 };
 
 card.defaultProps = {
+    actions: undefined,
     avatar_message: '',
     className: '',
     content_center: '',
