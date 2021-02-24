@@ -26,10 +26,10 @@ export const getFormDataAction = () => async (dispatch) => {
     try {
         dispatch(formActions.request());
         const { data } = await axios.get(URL);
-        // const ax = axios.create({
-        //     baseURL: 'http://robertvarela.com/keep-austin-nerdy'
-        // });
-        const res = await axios.get('formData.json');
+        const ax = axios.create({
+            baseURL: 'http://robertvarela.com/keep-austin-nerdy'
+        });
+        const res = await ax.get('formData.json');
         const formData = res.data;
         formData[0].category = {
             ...formData[0].category,
