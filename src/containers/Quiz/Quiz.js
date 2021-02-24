@@ -78,6 +78,30 @@ class QuizContainer extends Component {
         history.replace(RESULTS_ROUTE);
     };
 
+    display = () => {
+        const {
+            answer, answered, hideQuiz, isAnswerCorrect
+        } = this.state;
+        const {
+            quiz: { current, results }
+        } = this.props;
+
+        if (hideQuiz) {
+            return (<HomeLink className="center-content" />);
+        }
+
+        return (
+            <Quiz
+                answer={answer}
+                answered={answered}
+                current={current}
+                handleAnswer={this.handleAnswer}
+                isAnswerCorrect={isAnswerCorrect}
+                results={results}
+            />
+        );
+    };
+
     diplayButton = () => {
         const { answered, hideQuiz } = this.state;
         const { quiz: { current, results } } = this.props;
@@ -106,30 +130,6 @@ class QuizContainer extends Component {
                     {buttonProps.label}
                 </Button>
             )
-        );
-    };
-
-    display = () => {
-        const {
-            answer, answered, hideQuiz, isAnswerCorrect
-        } = this.state;
-        const {
-            quiz: { current, results }
-        } = this.props;
-
-        if (hideQuiz) {
-            return (<HomeLink className="center-content" />);
-        }
-
-        return (
-            <Quiz
-                answer={answer}
-                answered={answered}
-                current={current}
-                handleAnswer={this.handleAnswer}
-                isAnswerCorrect={isAnswerCorrect}
-                results={results}
-            />
         );
     };
 

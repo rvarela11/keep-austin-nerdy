@@ -27,10 +27,7 @@ class Question extends Component {
 
     shuffleAnswers = () => {
         const {
-            item: {
-                correct_answer,
-                incorrect_answers
-            }
+            item: { correct_answer, incorrect_answers }
         } = this.props;
         this.setState({
             answers: _.shuffle(incorrect_answers.concat(correct_answer))

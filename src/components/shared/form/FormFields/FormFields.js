@@ -7,10 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
 // @utiles
-import { DATA_TYPES, FIELD_TYPES } from '../../../../utiles/helpers';
-
-// @styles
-import './FormFields.scss';
+import { DATA_TYPES, FIELD_TYPES } from '../../../../utiles/formHelpers';
 
 const FormFields = (props) => {
     const {

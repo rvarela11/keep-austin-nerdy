@@ -12,9 +12,7 @@ import HomeLink from '../../components/shared/links/HomeLink/HomeLink';
 const ResultsContainer = (props) => {
     const {
         quiz: {
-            error,
-            grade,
-            results
+            error, grade, isFetching, results
         }
     } = props;
     const hideQuiz = _.isEmpty(results) && _.isEmpty(error);
@@ -39,8 +37,8 @@ const ResultsContainer = (props) => {
         <Card
             actions={diplayButton()}
             avatar_message={`${grade}%`}
-            error={{}}
-            isFetching={false}
+            error={error}
+            isFetching={isFetching}
             title="Results"
             subheader={subheader}
         >
@@ -57,6 +55,7 @@ ResultsContainer.propTypes = {
     quiz: PropTypes.shape({
         error: PropTypes.shape({}),
         grade: PropTypes.number,
+        isFetching: PropTypes.bool,
         results: PropTypes.array
     }).isRequired
 };

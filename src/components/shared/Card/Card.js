@@ -32,18 +32,18 @@ const card = (props) => {
     }
 
     const display = () => {
-        if (!_.isEmpty(error)) {
-            return (
-                <div className="center-content">
-                    Error
-                </div>
-            );
-        }
-
         if (isFetching) {
             return (
                 <div className="center-content">
                     <CircularProgress />
+                </div>
+            );
+        }
+
+        if (!_.isEmpty(error)) {
+            return (
+                <div className="center-content">
+                    Error
                 </div>
             );
         }

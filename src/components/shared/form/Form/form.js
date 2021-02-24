@@ -16,7 +16,7 @@ import {
     generateValues,
     submitModelForm,
     validateSchema
-} from '../../../../utiles/helpers';
+} from '../../../../utiles/formHelpers';
 
 // @styles
 import './Form.scss';
