@@ -3,14 +3,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // @components
-import Header from '../Header';
+import NotFound from '../NotFound';
 
 const setup = (propOptions) => {
     const props = {
         ...propOptions
     };
 
-    const enzymeWrapper = shallow(<Header {...props} />);
+    const enzymeWrapper = shallow(<NotFound {...props} />);
 
     return {
         props,
@@ -18,9 +18,9 @@ const setup = (propOptions) => {
     };
 };
 
-describe('Header component', () => {
-    it('should render Header', () => {
+describe('NotFound component', () => {
+    it('should render NotFound', () => {
         const { enzymeWrapper } = setup();
-        expect(enzymeWrapper.find('.header')).toHaveLength(1);
+        expect(enzymeWrapper.find('.not-found')).toHaveLength(1);
     });
 });

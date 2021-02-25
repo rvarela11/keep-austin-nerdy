@@ -3,14 +3,15 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // @components
-import Header from '../Header';
+import Card from '../Card';
 
 const setup = (propOptions) => {
     const props = {
+        children: <div>Card</div>,
         ...propOptions
     };
 
-    const enzymeWrapper = shallow(<Header {...props} />);
+    const enzymeWrapper = shallow(<Card {...props} />);
 
     return {
         props,
@@ -18,9 +19,9 @@ const setup = (propOptions) => {
     };
 };
 
-describe('Header component', () => {
-    it('should render Header', () => {
+describe('Card component', () => {
+    it('should render Card', () => {
         const { enzymeWrapper } = setup();
-        expect(enzymeWrapper.find('.header')).toHaveLength(1);
+        expect(enzymeWrapper.find('.card')).toHaveLength(1);
     });
 });

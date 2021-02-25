@@ -3,14 +3,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // @components
-import Header from '../Header';
+import HomeLink from '../HomeLink';
 
 const setup = (propOptions) => {
     const props = {
         ...propOptions
     };
 
-    const enzymeWrapper = shallow(<Header {...props} />);
+    const enzymeWrapper = shallow(<HomeLink {...props} />);
 
     return {
         props,
@@ -18,9 +18,9 @@ const setup = (propOptions) => {
     };
 };
 
-describe('Header component', () => {
-    it('should render Header', () => {
+describe('HomeLink component', () => {
+    it('should render HomeLink', () => {
         const { enzymeWrapper } = setup();
-        expect(enzymeWrapper.find('.header')).toHaveLength(1);
+        expect(enzymeWrapper.find('.button-link')).toHaveLength(1);
     });
 });

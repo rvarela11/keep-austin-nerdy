@@ -3,14 +3,15 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // @components
-import Header from '../Header';
+import Page from './Page';
 
 const setup = (propOptions) => {
     const props = {
+        children: <div>Test</div>,
         ...propOptions
     };
 
-    const enzymeWrapper = shallow(<Header {...props} />);
+    const enzymeWrapper = shallow(<Page {...props} />);
 
     return {
         props,
@@ -18,9 +19,9 @@ const setup = (propOptions) => {
     };
 };
 
-describe('Header component', () => {
-    it('should render Header', () => {
+describe('Page component', () => {
+    it('should render Page', () => {
         const { enzymeWrapper } = setup();
-        expect(enzymeWrapper.find('.header')).toHaveLength(1);
+        expect(enzymeWrapper.find('.page')).toHaveLength(1);
     });
 });

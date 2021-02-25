@@ -5,7 +5,6 @@ import React from 'react';
 import Page from '../Page';
 import ResultsContainer from '../../../../containers/Results/Results';
 
-
 export const Results = () => (
     <Page>
         <ResultsContainer />

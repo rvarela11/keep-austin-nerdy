@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Page from '../Page';
 import QuizContainer from '../../../../containers/Quiz/Quiz';
 
-
 export const Quiz = ({ history }) => (
     <Page>
         <QuizContainer history={history} />

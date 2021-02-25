@@ -1,16 +1,19 @@
 // @vendors
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Formik } from 'formik';
+
 
 // @components
-import Header from '../Header';
+import Form from '../form';
 
 const setup = (propOptions) => {
     const props = {
+        results: [{}],
         ...propOptions
     };
 
-    const enzymeWrapper = shallow(<Header {...props} />);
+    const enzymeWrapper = shallow(<Form {...props} />);
 
     return {
         props,
@@ -18,9 +21,9 @@ const setup = (propOptions) => {
     };
 };
 
-describe('Header component', () => {
-    it('should render Header', () => {
+describe('Form component', () => {
+    it('should render Form', () => {
         const { enzymeWrapper } = setup();
-        expect(enzymeWrapper.find('.header')).toHaveLength(1);
+        expect(enzymeWrapper.find(Formik)).toHaveLength(1);
     });
 });
