@@ -167,10 +167,10 @@ const mapStateToProps = state => ({
 });
 
 QuizContainer.propTypes = {
+    gradeAction: PropTypes.func.isRequired,
     history: PropTypes.shape({
         replace: PropTypes.func
     }).isRequired,
-    gradeAction: PropTypes.func.isRequired,
     nextQuestionAction: PropTypes.func.isRequired,
     quiz: PropTypes.shape({
         current: PropTypes.number,
