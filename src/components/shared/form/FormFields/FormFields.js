@@ -28,13 +28,13 @@ const FormFields = (props) => {
         required
     } = form[attr];
 
+    const handleBlur = () => {
+        setFieldTouched(attr);
+    };
+
     const handleChange = (event) => {
         setFieldTouched(attr);
         onChange(event);
-    };
-
-    const handleBlur = () => {
-        setFieldTouched(attr);
     };
 
     const renderField = () => {
