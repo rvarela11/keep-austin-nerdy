@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 
 // @components
 import Quiz from '../Quiz';
+import Answer from '../../Answer/Answer';
 
 const setup = (propOptions) => {
     const props = {
@@ -28,5 +29,12 @@ describe('Quiz component', () => {
     it('should render Quiz', () => {
         const { enzymeWrapper } = setup();
         expect(enzymeWrapper.find('.quiz')).toHaveLength(1);
+    });
+
+    it('should display Answer', () => {
+        const { enzymeWrapper } = setup({
+            answered: true
+        });
+        expect(enzymeWrapper.find(Answer)).toHaveLength(1);
     });
 });
