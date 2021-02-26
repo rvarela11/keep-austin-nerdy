@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "9203e6deaaad0f7c296b",
-    "url": "/keep-austin-nerdy/static/css/main.ddee1bc6.chunk.css"
+    "revision": "a38d4da9ee02a86fda8a",
+    "url": "/keep-austin-nerdy/static/css/main.d0585c3e.chunk.css"
   },
   {
-    "revision": "9203e6deaaad0f7c296b",
+    "revision": "a38d4da9ee02a86fda8a",
     "url": "/keep-austin-nerdy/static/js/main.adbad927.chunk.js"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/keep-austin-nerdy/static/media/keep_austin_nerdy.e382fb5f.jpg"
   },
   {
-    "revision": "5682b3d135d66dc754580b0d880bc52e",
+    "revision": "36afbca57a1ebf208f033b369e3c5fd0",
     "url": "/keep-austin-nerdy/index.html"
   }
 ];
