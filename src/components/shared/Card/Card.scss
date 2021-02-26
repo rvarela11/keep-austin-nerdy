@@ -3,7 +3,7 @@
 
 .card {
   width: 400px;
-  height: 600px;
+  height: calc(100vh - 93px);
   max-height: 600px;
   display: flex;
   flex-direction: column;
@@ -42,4 +42,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*---------------- @media -------------------*/
+
+@media screen and (max-width: 475px) {
+  .card {
+    width: 100%;
+    max-height: none;
+  }
 }
