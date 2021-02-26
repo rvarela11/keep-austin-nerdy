@@ -17,7 +17,7 @@ import rootReducer from './store/reducers/index';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 
-// Setting the Material-UI theme
+// Set Material-UI theme
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -28,6 +28,10 @@ const theme = createMuiTheme({
         useNextVariants: true
     }
 });
+
+// Set viewport height
+const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 const App = () => (
     <MuiThemeProvider theme={theme}>
