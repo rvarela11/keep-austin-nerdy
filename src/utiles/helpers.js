@@ -4,6 +4,7 @@ export const generateOptions = data => data.map(item => ({
 }));
 
 export const setViewportHeight = () => {
-    const vh = window.innerHeight * 0.01;
+    const { innerHeight, innerWidth, orientation } = window;
+    const vh = ((orientation > 0) ? innerWidth : innerHeight) * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 };

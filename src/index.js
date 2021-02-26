@@ -34,7 +34,6 @@ const theme = createMuiTheme({
 
 // Set viewport height
 setViewportHeight();
-window.addEventListener('resize', () => setViewportHeight());
 
 const App = () => (
     <MuiThemeProvider theme={theme}>
