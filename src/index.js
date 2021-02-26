@@ -15,6 +15,9 @@ import Root from './components/App/App';
 // @reducers
 import rootReducer from './store/reducers/index';
 
+// @utiles
+import { setViewportHeight } from './utiles/helpers';
+
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 
 // Set Material-UI theme
@@ -30,8 +33,8 @@ const theme = createMuiTheme({
 });
 
 // Set viewport height
-const vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+setViewportHeight();
+window.addEventListener('resize', () => setViewportHeight());
 
 const App = () => (
     <MuiThemeProvider theme={theme}>
