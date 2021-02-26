@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/keep-austin-nerdy/precache-manifest.41bed77f5999a1c880c80aa11731ab31.js"
+  "/keep-austin-nerdy/precache-manifest.43b582d5a000e298446f2a627b027398.js"
 );
 
 workbox.clientsClaim();
