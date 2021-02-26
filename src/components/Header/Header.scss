@@ -15,7 +15,16 @@
     background-size: contain;
     background-position: center;
     flex-grow: 1;
-    height: rem(60px);
+    height: rem(64px);
     margin: 0;
     padding: 0;
 }
+
+
+/*---------------- @media -------------------*/
+
+@media screen and (max-width: 475px) {
+    .header__logo {
+        height: rem(40px);
+    }
+  }
