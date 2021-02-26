@@ -7,6 +7,7 @@ import _ from 'lodash';
 
 // @material-ui
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 // @components
 import Card from '../../components/shared/card/Card';
@@ -83,11 +84,19 @@ class QuizContainer extends Component {
             answer, answered, hideQuiz, isAnswerCorrect
         } = this.state;
         const {
-            quiz: { current, results }
+            quiz: { current, response_code, results }
         } = this.props;
 
         if (hideQuiz) {
-            return (<HomeLink className="center-content" />);
+            return (
+                <div className="center-content error">
+                    {
+                        !_.isEqual(response_code, 0)
+                        && <Typography variant="h2">Try Again</Typography>
+                    }
+                    <HomeLink />
+                </div>
+            );
         }
 
         return (
@@ -177,6 +186,7 @@ QuizContainer.propTypes = {
         error: PropTypes.shape({}),
         grade: PropTypes.number,
         isFetching: PropTypes.bool,
+        response_code: PropTypes.number,
         results: PropTypes.array
     }).isRequired
 };

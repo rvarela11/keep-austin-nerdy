@@ -47,7 +47,7 @@ const card = (props) => {
         if (!_.isEmpty(error)) {
             return (
                 <div className="center-content error">
-                    <Typography className="error_title" variant="h2">Error</Typography>
+                    <Typography variant="h2">Error</Typography>
                     <HomeLink label="Home" />
                 </div>
             );

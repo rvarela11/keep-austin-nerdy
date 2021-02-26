@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // @actionTypes
 import * as types from '../../actions/actionTypes';
 
@@ -9,10 +10,11 @@ import {
 } from '../../actions/index';
 
 export const initialState = {
-    current: 0,
+    current: 9,
     error: {},
     grade: 0,
     isFetching: false,
+    response_code: 0,
     results: []
 };
 
@@ -24,10 +26,11 @@ export default function reducer(state = initialState, action) {
                 isFetching: true
             };
         case types.GET_QUESTIONS[SUCCESS]: {
-            const { results } = action;
+            const { response_code, results } = action.data;
             return {
                 ...state,
                 isFetching: false,
+                response_code,
                 results
             };
         }

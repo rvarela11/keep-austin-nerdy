@@ -14,7 +14,7 @@ const baseURL = 'https://opentdb.com';
 
 export const quizActions = {
     request: () => createAction(types.GET_QUESTIONS[REQUEST]),
-    success: results => createAction(types.GET_QUESTIONS[SUCCESS], { results }),
+    success: data => createAction(types.GET_QUESTIONS[SUCCESS], { data }),
     failure: error => createAction(types.GET_QUESTIONS[FAILURE], { error })
 };
 
@@ -22,10 +22,10 @@ export const getQuestionsAction = values => async (dispatch) => {
     const URL = `${baseURL}/api.php`;
     try {
         dispatch(quizActions.request());
-        const { data: { results } } = await axios.get(URL, {
+        const { data } = await axios.get(URL, {
             params: { ...values }
         });
-        dispatch(quizActions.success(results));
+        dispatch(quizActions.success(data));
     } catch (error) {
         console.log('Error', error);
         const { status, statusText } = error.response;
