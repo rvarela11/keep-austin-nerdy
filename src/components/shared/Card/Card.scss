@@ -17,15 +17,11 @@
   overflow-y: scroll;
   display: flex;
   flex: 1;
-  padding: 16px;
 }
 
-.card .card-actions {
-  padding: 16px;
-}
-
-.card .MuiCardContent-root-71:last-child {
-  padding: 16px;
+.card > div,
+.card .card-content:last-child {
+  padding: $spacing-md;
 }
 
 .center-content {
@@ -46,5 +42,9 @@
   .card {
     width: 100%;
     max-height: none;
+  }
+  .card > div,
+  .card .card-content:last-child {
+    padding: $spacing-xs;
   }
 }

@@ -59,6 +59,7 @@ const card = (props) => {
     return (
         <Card className={`card ${className}`}>
             <CardHeader
+                className="card-header"
                 title={title}
                 subheader={subheader}
                 {...cardHeaderProps}
