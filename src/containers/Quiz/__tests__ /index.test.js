@@ -8,8 +8,6 @@ import thunk from 'redux-thunk';
 
 // @components
 import QuizContainer from '../Quiz';
-import Quiz from '../../../components/quiz/Quiz/Quiz';
-
 
 // @store
 import { initialState } from '../../../store/reducers/quiz/quiz';
@@ -42,8 +40,8 @@ const setup = (propOptions) => {
 };
 
 describe('QuizContainer component', () => {
-    xit('should render QuizContainer', () => {
+    it('should render QuizContainer', () => {
         const { enzymeWrapper } = setup();
-        expect(enzymeWrapper.find(Quiz)).toHaveLength(1);
+        expect(enzymeWrapper.find('.error')).toHaveLength(1);
     });
 });
