@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // @actionTypes
 import * as types from '../actionTypes';
 import {
@@ -8,12 +9,15 @@ import {
 } from '../index';
 
 // @utiles
-import { generateOptions } from '../../../utiles/helpers';
+import { generateOptions, logErrorToConsole } from '../../../utiles/helpers';
 
 // @vendors
 const axios = require('axios');
 
-const baseURL = 'https://opentdb.com';
+export const TRIVIA_URL = {
+    base: 'https://opentdb.com',
+    category: '/api_category.php'
+};
 
 export const formActions = {
     request: () => createAction(types.GET_FORM_DATA[REQUEST]),
@@ -22,7 +26,9 @@ export const formActions = {
 };
 
 export const getFormDataAction = () => async (dispatch) => {
-    const URL = `${baseURL}/api_category.php`;
+    const { base, category } = TRIVIA_URL;
+    const URL = base + category;
+
     try {
         dispatch(formActions.request());
         const { data } = await axios.get(URL);
@@ -37,7 +43,7 @@ export const getFormDataAction = () => async (dispatch) => {
         };
         dispatch(formActions.success(formData));
     } catch (error) {
-        console.log('Error', error);
+        logErrorToConsole(error);
         const { status, statusText } = error.response;
         dispatch(formActions.failure({ status, statusText }));
     }

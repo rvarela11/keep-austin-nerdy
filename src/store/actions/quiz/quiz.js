@@ -7,6 +7,9 @@ import {
     FAILURE
 } from '../index';
 
+// @utiles
+import { logErrorToConsole } from '../../../utiles/helpers';
+
 // @vendors
 const axios = require('axios');
 
@@ -27,7 +30,7 @@ export const getQuestionsAction = values => async (dispatch) => {
         });
         dispatch(quizActions.success(data));
     } catch (error) {
-        console.log('Error', error);
+        logErrorToConsole(error);
         const { status, statusText } = error.response;
         dispatch(quizActions.failure({ status, statusText }));
     }

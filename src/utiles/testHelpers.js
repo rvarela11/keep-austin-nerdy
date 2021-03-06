@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export const generateResults = (number) => {
     const results = [];
 
@@ -11,3 +12,19 @@ export const generateResults = (number) => {
 
     return results;
 };
+
+export const trivia_categories = [{
+    id: 9,
+    name: 'General Knowledge'
+}];
+
+export const questions = [
+    {
+        category: 'Entertainment: Books',
+        correct_answer: 'J.K. Rowling',
+        difficulty: 'easy',
+        incorrect_answers: ['J.R.R. Tolkien', 'Terry Pratchett', 'Daniel Radcliffe'],
+        question: 'Who wrote &quot;Harry Potter&quot;?',
+        type: 'multiple'
+    }
+];
