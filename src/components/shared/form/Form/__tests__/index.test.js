@@ -1,10 +1,11 @@
 // @vendors
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { Formik } from 'formik';
 
 // @components
 import Form from '../form';
+import FormFields from '../../FormFields/FormFields';
 
 // @json
 const results = require('../../../../../../public/formData.json');
@@ -16,7 +17,7 @@ const setup = (propOptions) => {
         ...propOptions
     };
 
-    const enzymeWrapper = shallow(<Form {...props} />);
+    const enzymeWrapper = mount(<Form {...props} />);
 
     return {
         props,
@@ -35,5 +36,10 @@ describe('Form component', () => {
         const FormikProps = enzymeWrapper.find(Formik).props();
         FormikProps.onSubmit();
         expect(props.onSave).toHaveBeenCalled();
+    });
+
+    it('should render FormFields', () => {
+        const { enzymeWrapper } = setup();
+        expect(enzymeWrapper.find(FormFields)).toHaveLength(4);
     });
 });

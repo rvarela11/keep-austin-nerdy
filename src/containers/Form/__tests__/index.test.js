@@ -12,9 +12,15 @@ import Form from '../../../components/shared/form/Form/form';
 // @store
 import { initialState } from '../../../store/reducers/form/form';
 
+// @json
+const results = require('../../../../public/formData.json');
+
 const mockStore = configureMockStore([thunk]);
 const store = mockStore({
-    form: initialState
+    form: {
+        ...initialState,
+        results
+    }
 });
 
 const setup = (propOptions) => {
