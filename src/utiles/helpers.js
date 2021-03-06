@@ -19,6 +19,6 @@ export const isTest = () => {
     }
 };
 
-export function logErrorToConsole(error) {
+export const logErrorToConsole = (error) => {
     if (!isTest()) console.error(_.get(error, 'response.data.errors[0].title', error));
-}
+};
