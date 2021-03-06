@@ -9,15 +9,15 @@ import TextField from '@material-ui/core/TextField';
 import FormFields from '../FormFields';
 
 // @json
-const testForm = require('../../../../../../public/formData.json');
+const results = require('../../../../../../public/formData.json');
 
 const attr = 'type';
-const { value } = testForm[0][attr];
+const { value } = results[0][attr];
 
 const setup = (propOptions) => {
     const props = {
         attr,
-        form: testForm[0],
+        form: results[0],
         onChange: jest.fn(),
         setFieldTouched: jest.fn(),
         value,
@@ -57,7 +57,7 @@ describe('FormFields component', () => {
     });
 
     it('should render null', () => {
-        const form = testForm[0];
+        const form = results[0];
         form[attr].dataType = 'boolean';
         const { enzymeWrapper } = setup({ form });
         expect(enzymeWrapper.find(TextField)).toHaveLength(0);
