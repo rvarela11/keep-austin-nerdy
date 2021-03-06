@@ -5,7 +5,8 @@ import {
     createAction,
     REQUEST,
     SUCCESS,
-    FAILURE
+    FAILURE,
+    TRIVIA_URL
 } from '../index';
 
 // @utiles
@@ -13,11 +14,6 @@ import { generateOptions, logErrorToConsole } from '../../../utiles/helpers';
 
 // @vendors
 const axios = require('axios');
-
-export const TRIVIA_URL = {
-    base: 'https://opentdb.com',
-    category: '/api_category.php'
-};
 
 export const formActions = {
     request: () => createAction(types.GET_FORM_DATA[REQUEST]),

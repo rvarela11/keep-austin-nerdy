@@ -4,7 +4,8 @@ import {
     createAction,
     REQUEST,
     SUCCESS,
-    FAILURE
+    FAILURE,
+    TRIVIA_URL
 } from '../index';
 
 // @utiles
@@ -13,8 +14,6 @@ import { logErrorToConsole } from '../../../utiles/helpers';
 // @vendors
 const axios = require('axios');
 
-const baseURL = 'https://opentdb.com';
-
 export const quizActions = {
     request: () => createAction(types.GET_QUESTIONS[REQUEST]),
     success: data => createAction(types.GET_QUESTIONS[SUCCESS], { data }),
@@ -22,7 +21,9 @@ export const quizActions = {
 };
 
 export const getQuestionsAction = values => async (dispatch) => {
-    const URL = `${baseURL}/api.php`;
+    const { base, questions } = TRIVIA_URL;
+    const URL = base + questions;
+
     try {
         dispatch(quizActions.request());
         const { data } = await axios.get(URL, {

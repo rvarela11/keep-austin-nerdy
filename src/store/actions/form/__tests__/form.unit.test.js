@@ -7,14 +7,14 @@ import axios from 'axios';
 
 // @store
 import * as actions from '../form';
-import { TRIVIA_URL } from '../form';
 
 // @actionTypes
 import * as types from '../../actionTypes';
 import {
     REQUEST,
     SUCCESS,
-    FAILURE
+    FAILURE,
+    TRIVIA_URL
 } from '../../index';
 
 // @utiles
