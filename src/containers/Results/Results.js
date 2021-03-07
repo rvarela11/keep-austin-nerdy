@@ -9,7 +9,7 @@ import Card from '../../components/shared/card/Card';
 import Results from '../../components/Results/Results';
 import HomeLink from '../../components/shared/links/HomeLink/HomeLink';
 
-const ResultsContainer = (props) => {
+export const ResultsContainer = (props) => {
     const {
         quiz: {
             error, grade, isFetching, results
@@ -47,7 +47,7 @@ const ResultsContainer = (props) => {
     );
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
     quiz: state.quiz
 });
 
