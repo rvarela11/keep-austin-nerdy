@@ -26,5 +26,13 @@ export const questions = [
         incorrect_answers: ['J.R.R. Tolkien', 'Terry Pratchett', 'Daniel Radcliffe'],
         question: 'Who wrote &quot;Harry Potter&quot;?',
         type: 'multiple'
+    },
+    {
+        category: 'Entertainment: Books',
+        correct_answer: 'J.K. Rowling',
+        difficulty: 'easy',
+        incorrect_answers: ['J.R.R. Tolkien', 'Terry Pratchett', 'Daniel Radcliffe'],
+        question: 'Who wrote &quot;Harry Potter&quot;?',
+        type: 'multiple'
     }
 ];

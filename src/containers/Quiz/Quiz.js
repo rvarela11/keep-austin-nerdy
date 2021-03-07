@@ -27,7 +27,7 @@ const initialState = {
     hideQuiz: true
 };
 
-class QuizContainer extends Component {
+export class QuizContainer extends Component {
     state = initialState;
 
     componentDidUpdate(prevProps) {
