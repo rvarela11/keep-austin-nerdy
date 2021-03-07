@@ -75,7 +75,7 @@ const form = (props) => {
                                 Save
                             </Button>
                             <Button
-                                onClick={() => handleReset()}
+                                onClick={handleReset}
                                 size="small"
                             >
                                 Reset
