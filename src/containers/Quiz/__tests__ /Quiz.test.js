@@ -108,7 +108,7 @@ describe('QuizContainer component', () => {
         expect(spy).toHaveBeenCalledTimes(1);
     });
 
-    it('should render mapDispatchToProps', () => {
+    it('should handle mapDispatchToProps', () => {
         const dispatch = jest.fn();
         const props = mapDispatchToProps(dispatch);
         const expected = JSON.stringify(() => {});
@@ -116,7 +116,7 @@ describe('QuizContainer component', () => {
         expect(props.nextQuestionAction()).toEqual(expected);
     });
 
-    it('should render mapStateToProps', () => {
+    it('should handle mapStateToProps', () => {
         const state = { quiz };
         expect(mapStateToProps(state)).toEqual(state);
     });

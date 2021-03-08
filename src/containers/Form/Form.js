@@ -14,7 +14,7 @@ import { getQuestionsAction } from '../../store/actions/quiz/quiz';
 // @utiles
 import { QUIZ_ROUTE } from '../../utiles/routes';
 
-class FormContainer extends Component {
+export class FormContainer extends Component {
     componentDidMount() {
         const { getFormDataAction } = this.props;
         getFormDataAction();
@@ -43,12 +43,12 @@ class FormContainer extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
     getFormDataAction: () => dispatch(getFormDataAction()),
     getQuestionsAction: values => dispatch(getQuestionsAction(values))
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
     form: state.form
 });
 

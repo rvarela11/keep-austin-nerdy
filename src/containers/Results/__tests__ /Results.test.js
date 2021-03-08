@@ -3,8 +3,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // @components
-import Results from '../../../components/Results/Results';
 import HomeLink from '../../../components/shared/links/HomeLink/HomeLink';
+import Results from '../../../components/Results/Results';
 import { ResultsContainer, mapStateToProps } from '../Results';
 
 // @store
@@ -41,7 +41,7 @@ describe('ResultsContainer component', () => {
         expect(enzymeWrapper.find(Results)).toHaveLength(1);
     });
 
-    it('should render mapStateToProps', () => {
+    it('should handle mapStateToProps', () => {
         const state = { quiz };
         expect(mapStateToProps(state)).toEqual(state);
     });

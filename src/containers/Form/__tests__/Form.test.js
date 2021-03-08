@@ -1,41 +1,24 @@
 // @vendors
 import React from 'react';
-import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { shallow } from 'enzyme';
 
 // @components
-import FormContainer from '../Form';
 import Form from '../../../components/shared/form/Form/form';
+import { FormContainer, mapDispatchToProps, mapStateToProps } from '../Form';
 
 // @store
-import { initialState } from '../../../store/reducers/form/form';
-
-// @json
-const results = require('../../../../public/formData.json');
-
-const mockStore = configureMockStore([thunk]);
-const store = mockStore({
-    form: {
-        ...initialState,
-        results
-    }
-});
+import { initialState as form } from '../../../store/reducers/form/form';
 
 const setup = (propOptions) => {
     const props = {
+        form,
         getFormDataAction: jest.fn(),
         getQuestionsAction: jest.fn(),
-        history: { replace: () => {} },
+        history: { replace: jest.fn() },
         ...propOptions
     };
 
-    const enzymeWrapper = mount(
-        <Provider store={store}>
-            <FormContainer {...props} />
-        </Provider>
-    );
+    const enzymeWrapper = shallow(<FormContainer {...props} />);
 
     return {
         props,
@@ -44,8 +27,30 @@ const setup = (propOptions) => {
 };
 
 describe('FormContainer component', () => {
-    it('should render FormContainer', () => {
-        const { enzymeWrapper } = setup();
+    it('should render Form', () => {
+        const { enzymeWrapper, props } = setup();
+        expect(props.getFormDataAction).toHaveBeenCalled();
         expect(enzymeWrapper.find(Form)).toHaveLength(1);
+    });
+
+    it('should invoke handleOnSave', () => {
+        const { enzymeWrapper, props } = setup();
+        const FormProps = enzymeWrapper.find(Form).props();
+        FormProps.onSave();
+        expect(props.getQuestionsAction).toHaveBeenCalled();
+        expect(props.history.replace).toHaveBeenCalled();
+    });
+
+    it('should handle mapDispatchToProps', () => {
+        const dispatch = jest.fn();
+        const props = mapDispatchToProps(dispatch);
+        const expected = JSON.stringify(() => {});
+        expect(props.getFormDataAction()).toEqual(expected);
+        expect(props.getQuestionsAction()).toEqual(expected);
+    });
+
+    it('should handle mapStateToProps', () => {
+        const state = { form };
+        expect(mapStateToProps(state)).toEqual(state);
     });
 });
