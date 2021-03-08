@@ -166,12 +166,12 @@ export class QuizContainer extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
     gradeAction: () => dispatch(gradeAction()),
     nextQuestionAction: () => dispatch(nextQuestionAction())
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
     quiz: state.quiz
 });
 
